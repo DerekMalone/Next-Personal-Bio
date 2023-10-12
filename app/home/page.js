@@ -1,22 +1,17 @@
 "use client";
-import Image from "next/image";
+import { CldImage } from "next-cloudinary";
 import React from "react";
+import Banner from "../components/landingPage/Banner";
+import Profile from "../components/landingPage/Profile";
 
 export default function HomePage() {
   return (
-    <section>
-      <div className='image-container'>
-        <Image
-          // fill={true}
-          width={2000}
-          height={190}
-          className='banner-image'
-          src='https://res.cloudinary.com/dingomalone/image/upload/v1680299032/Personal%20Bio%20Site/IMG_6109_tfmtta_168a0c.jpg'
-          alt='panorama of mountains'
-        />
-      </div>
-
-      <h1>This is the home page route</h1>
-    </section>
+    <>
+      <Banner />
+      <Profile />
+      <section>
+        <h1>This is the home page route</h1>
+      </section>
+    </>
   );
 }
