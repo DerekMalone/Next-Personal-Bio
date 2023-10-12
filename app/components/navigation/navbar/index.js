@@ -21,6 +21,16 @@ export default function NavBar() {
                   <p>Projects</p>
                 </Link>
               </li>
+              <li>
+                <Link href='/tech-stack'>
+                  <p>Tech Stack</p>
+                </Link>
+              </li>
+              <li>
+                <Link href='/contact'>
+                  <p>Contact</p>
+                </Link>
+              </li>
             </ul>
             <Button />
           </div>
