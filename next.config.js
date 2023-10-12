@@ -1,4 +1,9 @@
 /** @type {import('next').NextConfig} */
-const nextConfig = {}
+const nextConfig = {
+  images: {
+    loader: "cloudinary",
+    path: "https://res.cloudinary.com/dingomalone/image/upload",
+  },
+};
 
-module.exports = nextConfig
+module.exports = nextConfig;
