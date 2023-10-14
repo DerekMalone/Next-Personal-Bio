@@ -10,7 +10,9 @@ export default function HomePage() {
       <Banner />
       <Profile />
       <section>
-        <h1>This is the home page route</h1>
+        <h1 className='text-3xl font-bold underline'>
+          This is the home page route
+        </h1>
       </section>
     </>
   );
