@@ -4,7 +4,7 @@ const Profile = () => {
   // TODO: need to work on getting info listed.
   return (
     <>
-      <section className='profile-component'>
+      <section className='flex profile-component'>
         <div className='profile-photo'>
           <CldImage
             width={250}
@@ -14,8 +14,8 @@ const Profile = () => {
             alt='Derek Malone Headshot'
           />
         </div>
-        <article>
-          <p>Personal info goes here.</p>
+        <article className=' border-solid justify-center'>
+          <p className='justify-center text-center'>Personal info goes here.</p>
         </article>
       </section>
     </>
