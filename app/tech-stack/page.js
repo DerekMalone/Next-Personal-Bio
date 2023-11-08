@@ -3,7 +3,9 @@ import React from "react";
 const TechStack = () => {
   return (
     <section>
-      <h3>TechStack</h3>
+      <h3 className='border-solid border-2 border-indigo-600 p-3 m-3'>
+        TechStack
+      </h3>
     </section>
   );
 };
