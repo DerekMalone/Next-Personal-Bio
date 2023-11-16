@@ -6,7 +6,7 @@ import Button from "./Button";
 export default function NavBar() {
   return (
     <>
-      <div className='border-solid border-2 border-orange-500 p-3 w-full h-20 bg-emerald-800 sticky top-0'>
+      <div className='p-3 w-full h-20 bg-slate-500 sticky top-0'>
         <div className='container mx-auto px-4 h-full'>
           <div className='flex justify-between items-center h-full'>
             {/* <Logo /> */}

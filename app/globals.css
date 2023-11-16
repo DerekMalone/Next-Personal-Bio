@@ -9,6 +9,12 @@
     'Roboto Mono', 'Oxygen Mono', 'Ubuntu Monospace', 'Source Code Pro',
     'Fira Mono', 'Droid Sans Mono', 'Courier New', monospace;
 
+    /* color schema */
+  --main-bg-color: #7d8ba5;
+  --main-text-color: #0f0e15;
+  --second-text-color: #285D9F;
+  --accent-color: #6c5F41;
+
   --foreground-rgb: 0, 0, 0;
   --background-start-rgb: 214, 219, 220;
   --background-end-rgb: 255, 255, 255;
@@ -109,8 +115,3 @@ a {
     color-scheme: dark;
   }
 }
-
-/* .image-container{
-  width: 100vw;
-  height: 5rem;
-} */
