@@ -3,7 +3,7 @@ import { CldImage } from "next-cloudinary";
 import React from "react";
 import Banner from "../components/landingPage/Banner";
 import Profile from "../components/landingPage/Profile";
-import FocusProjects from "../components/landingPage/FocusProjects";
+import AboutMe from "../components/landingPage/AboutMe";
 import QuickContactMe from "../components/landingPage/QuickContactMe";
 
 export default function HomePage() {
@@ -13,7 +13,7 @@ export default function HomePage() {
         {/* can add style to above div and add background image if needed (need to look up how to do this in Next) */}
         {/* <Banner /> */}
         <Profile />
-        <FocusProjects />
+        <AboutMe />
         <QuickContactMe />
       </div>
     </div>
