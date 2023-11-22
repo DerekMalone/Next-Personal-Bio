@@ -2,7 +2,7 @@ import { CldImage } from "next-cloudinary";
 
 const Banner = () => {
   return (
-    <div>
+    <div className='border-solid border-2 border-indigo-600 p-3 m-3'>
       <CldImage
         // fill={true}
         width={2000}
