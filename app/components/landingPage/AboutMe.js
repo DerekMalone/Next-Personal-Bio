@@ -6,7 +6,7 @@ const AboutMe = () => {
     <div className="border-solid border-4 border-slate-500 p-3 w-full className='justify-center text-center divide-y-4 divide-solid">
       <section className='flex justify-center'>
         <div className='divide-x-2 divide-solid'>
-          <h4 className='basis-1/4 text-3xl text-slate-500 border'>
+          <h4 className='basis-1/4 text-3xl text-slate-500 drop-shadow-lg'>
             Who AM I?
           </h4>
         </div>

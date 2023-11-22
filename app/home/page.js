@@ -4,7 +4,7 @@ import React from "react";
 import Banner from "../components/landingPage/Banner";
 import Profile from "../components/landingPage/Profile";
 import AboutMe from "../components/landingPage/AboutMe";
-import QuickContactMe from "../components/landingPage/QuickContactMe";
+import BlogSample from "../components/landingPage/BlogSample";
 
 export default function HomePage() {
   return (
@@ -14,7 +14,7 @@ export default function HomePage() {
         {/* <Banner /> */}
         <Profile />
         <AboutMe />
-        <QuickContactMe />
+        <BlogSample />
       </div>
     </div>
   );
