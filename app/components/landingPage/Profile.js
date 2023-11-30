@@ -47,7 +47,7 @@ const Profile = () => {
 
         <section className='container relative z-30 pt-20 pb-12 sm:pt-56 sm:pb-48 lg:pt-64 lg:pb-48'>
           <div className='flex flex-col items-center justify-center lg:flex-row'>
-            <article className='rounded-full border-8 border-slate-500 opacity-75 shadow-xl'>
+            <article className='rounded-full border-8 border-primary-burgandy opacity-100 shadow-xl'>
               <CldImage
                 width={250}
                 height={250}
