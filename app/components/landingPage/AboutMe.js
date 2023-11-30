@@ -3,7 +3,7 @@ import TechStack from "../techstack/TechStack";
 
 const AboutMe = () => {
   return (
-    <div className='flex flex-col items-center py-16 md:py-20 lg:flex-row border-solid border-4 border-slate-500  '>
+    <div className='flex flex-col items-center py-16 md:py-20 lg:flex-row '>
       <section className='w-full text-center sm:w-3/4 lg:2-3/5 lg: text-left'>
         <h4 className='font-header text-4xl font font-semibold uppercase basis-1/4 text-primary-green drop-shadow-lg p-3 sm:text-5xl lg:text-6xl'>
           Who AM I?
