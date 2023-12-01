@@ -21,7 +21,7 @@ const BlogSample = () => {
   ]);
 
   return (
-    <section className='py-16 md:py-20 border border-orange-500 border-solid'>
+    <section className='py-16 md:py-20 bg-zinc-font'>
       <h1 className='text-center font-header text-4xl font-semibold uppercase text-primary-slate sm:text-5xl lg:text-6xl'>
         Most Recent Blogs{" "}
       </h1>
