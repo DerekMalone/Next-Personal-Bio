@@ -1,3 +1,5 @@
+const gitHubUrl = "https://api.github.com";
+
 const projects = [
   {
     repoName: "Caffe-Cache",
@@ -25,4 +27,10 @@ const getAllProjects = () => {
   return structuredClone(projects);
 };
 
-export default getAllProjects;
+const getProject = async (repoName) => {
+  fetch(`${gitHubUrl}/repos/DerekMalone/${repoName}`)
+    .then((response) => response.json)
+    .then((res) => res);
+};
+
+export { getAllProjects, getProject };
