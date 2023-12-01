@@ -20,6 +20,7 @@ export default function Portfolio() {
           <ProjectDetails
             key={project.repoName}
             projectName={project.repoName}
+            projectImg={project.image}
           />
         ))}
       </div>
