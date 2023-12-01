@@ -92,8 +92,8 @@ export default function NavBar() {
             </Link>
           </li>
           <li>
-            <Link href='/projects'>
-              <p>Projects</p>
+            <Link href='/portfolio'>
+              <p>Portfolio</p>
             </Link>
           </li>
           <li>

@@ -1,24 +1,13 @@
 "use client";
-import React, { useState } from "react";
+import getAllBlogs from "@/app/api/data/blogs";
+import React, { useState, useEffect } from "react";
 
 const BlogSample = () => {
-  const [demoBlogs, setDemoBlogs] = useState([
-    {
-      id: 1,
-      title: "Sample Title 1",
-      text: "  Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Sit amet est placerat in egestas erat. Rhoncus urna neque viverra justo nec ultrices dui. Nisl pretium fusce id velit ut tortor pretium. Leo vel fringilla est ullamcorper eget...",
-    },
-    {
-      id: 2,
-      title: "Sample Title 2",
-      text: "  Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Sit amet est placerat in egestas erat. Rhoncus urna neque viverra justo nec ultrices dui. Nisl pretium fusce id velit ut tortor pretium. Leo vel fringilla est ullamcorper eget...",
-    },
-    {
-      id: 3,
-      title: "Sample Title 3",
-      text: "  Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Sit amet est placerat in egestas erat. Rhoncus urna neque viverra justo nec ultrices dui. Nisl pretium fusce id velit ut tortor pretium. Leo vel fringilla est ullamcorper eget...",
-    },
-  ]);
+  const [demoBlogs, setDemoBlogs] = useState([]);
+
+  useEffect(() => {
+    setDemoBlogs(getAllBlogs());
+  }, []);
 
   return (
     <section className='py-16 md:py-20 bg-zinc-font'>
