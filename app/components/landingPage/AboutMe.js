@@ -9,10 +9,10 @@ const AboutMe = () => {
           Who AM I?
         </h4>
         <h5 className='pt-6 font-header text-xl font-medium text-black sm:text-2xl lg:text-3xl'>
-          I'm Derek Malone, a Software Developer!
+          {`I'm Derek Malone, a Software Developer!`}
         </h5>
         <p className='pt-6 font-body leading-relaxed text-grey-20'>
-          I am a passionate software developer with a knack for turning ideas
+          {`I am a passionate software developer with a knack for turning ideas
           into efficient and user-frinedly applications. Proficient in
           JavaScript, C#, Python, React, Next, ASP.NET, and Django with a focus
           in web development. Coached 520 students with a 92% module completion
@@ -21,7 +21,7 @@ const AboutMe = () => {
           positive impact on people's lives. I thrive on tackling complex
           problems and continuously learning to stay at the forefront of
           technology. Effective communicator who enjoys collaborating with
-          cross-functional teams to deliver top-notch software solutions.
+          cross-functional teams to deliver top-notch software solutions.`}
         </p>
       </section>
       <TechStack />
