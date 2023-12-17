@@ -9,7 +9,7 @@ const Footer = () => {
       <div className='container mx-auto px-4'>
         <div className='flex flex-wrap text-left lg:text-left'>
           <div className='w-full lg:w-6/12 px-4'>
-            <h4 className='text-3xl fonat-semibold text-blueGray-700'>
+            <h4 className='text-3xl font-semibold text-blueGray-700'>
               {`Let's keep in touch!`}
             </h4>
             <h5 className='text-lg mt-0 mb-2 text-blueGray-600'>
@@ -24,13 +24,13 @@ const Footer = () => {
                   href='https://www.linkedin.com/in/malone-derek/'
                   className='pl-4 hover:text-yellow  h-10 w-10 items-center justify-center align-center rounded-full '
                 >
-                  <box-icon
+                  {/* <box-icon
                     className='sm-linkedin-logo'
                     type='logo'
                     name='linkedin-square'
                     color='black '
                     size='2xl'
-                  ></box-icon>
+                  ></box-icon> */}
                   <i className='bx bxl-linkedin text-2xl text-black hover:text-yellow'></i>
                 </a>
               </button>
@@ -39,13 +39,13 @@ const Footer = () => {
                 type='button'
               >
                 <a href='https://github.com/DerekMalone' className='pl-4'>
-                  <box-icon
+                  {/* <box-icon
                     className='sm-github-logo'
                     type='logo'
                     name='github'
                     color='black '
                     size='2xl'
-                  ></box-icon>
+                  ></box-icon> */}
                 </a>
               </button>
             </div>

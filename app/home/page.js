@@ -11,6 +11,16 @@ const DynamicProfile = dynamic(
   { ssr: false, loading: () => <p>Loading...</p> }
 );
 
+const DynamicAboutMe = dynamic(
+  () => import("../components/landingPage/AboutMe"),
+  { ssr: false, loading: () => <p>Loading...</p> }
+);
+
+const DynamicBlogSample = dynamic(
+  () => import("../components/landingPage/BlogSample"),
+  { ssr: false, loading: () => <p>Loading...</p> }
+);
+
 export default function HomePage() {
   return (
     <div className='relative bg-cover bg-center bg-no-repeat'>
@@ -18,8 +28,8 @@ export default function HomePage() {
         {/* can add style to above div and add background image if needed (need to look up how to do this in Next) */}
         {/* <Banner /> */}
         <DynamicProfile />
-        <AboutMe />
-        <BlogSample />
+        <DynamicAboutMe />
+        <DynamicBlogSample />
       </div>
     </div>
   );

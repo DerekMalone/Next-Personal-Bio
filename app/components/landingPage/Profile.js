@@ -1,5 +1,5 @@
 import { CldImage } from "next-cloudinary";
-import "boxicons";
+// import "boxicons";
 
 const Profile = () => {
   // TODO: Once Supabase is set up, pull about me text from there and display.
@@ -66,11 +66,11 @@ const Profile = () => {
                     {`Let's connect`}
                   </p>
                   <div className='hidden sm:block'>
-                    <box-icon
+                    {/* <box-icon
                       name='chevron-right'
                       color='yellow'
                       size='3xl'
-                    ></box-icon>
+                    ></box-icon> */}
                   </div>
                 </div>
                 <ul className='flex items-center justify-center pt-5 pl-2 sm:justify-start sm:pt-0'>
@@ -79,27 +79,27 @@ const Profile = () => {
                       href='https://www.linkedin.com/in/malone-derek/'
                       className='pl-4 hover:text-yellow'
                     >
-                      <box-icon
+                      {/* <box-icon
                         className='sm-linkedin-logo'
                         type='logo'
                         name='linkedin-square'
                         color='black '
                         animation='tada-hover'
                         size='2xl'
-                      ></box-icon>
+                      ></box-icon> */}
                       <i className='bx bxl-linkedin text-2xl text-black hover:text-yellow'></i>
                     </a>
                   </li>
                   <li>
                     <a href='https://github.com/DerekMalone' className='pl-4'>
-                      <box-icon
+                      {/* <box-icon
                         className='sm-github-logo'
                         type='logo'
                         name='github'
                         color='black '
                         animation='tada-hover'
                         size='2xl'
-                      ></box-icon>
+                      ></box-icon> */}
                     </a>
                   </li>
                 </ul>

@@ -4,8 +4,14 @@ const TechStack = () => {
   return (
     <article className='w-full pl-6 pt-10 pr-8 sm:w-3/4 lg:w-2/5 lg:pl-12 lg:pt-0'>
       <ul className='flex flex-wrap items-center justify-evenly pt-5 pl-2 sm:pt-0'>
-        <li className='p-1 items-center justify-center'>
-          <box-icon
+        <li>
+          <p className='justify-center'>JavaScript</p>
+        </li>
+        <li>
+          <p>React</p>
+        </li>
+        {/*<li className='p-1 items-center justify-center'>
+           <box-icon
             className='javascript-logo justify-center'
             type='logo'
             name='javascript'
@@ -142,8 +148,8 @@ const TechStack = () => {
             color='black '
             size='lg'
           ></box-icon>
-          <p>Netlify</p>
-        </li>
+          <p>Netlify</p> 
+        </li>*/}
         {/* TODO: Need to ADD: C#, ASP.NET, SQL, Postman, JSON-server, Figma, & prisma */}
       </ul>
     </article>
