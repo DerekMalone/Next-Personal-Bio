@@ -1,5 +1,7 @@
 import React from "react";
 
+// TODO: Pull in all images and apply styling.
+
 const TechStack = () => {
   return (
     <article className='w-full pl-6 pt-10 pr-8 sm:w-3/4 lg:w-2/5 lg:pl-12 lg:pt-0'>
@@ -32,7 +34,7 @@ const TechStack = () => {
         </li>
         <li className='p-1'>
           <box-icon
-            className='pythong-logo'
+            className='python-logo'
             type='logo'
             name='python'
             color='black '
@@ -150,7 +152,7 @@ const TechStack = () => {
           ></box-icon>
           <p>Netlify</p> 
         </li>*/}
-        {/* TODO: Need to ADD: C#, ASP.NET, SQL, Postman, JSON-server, Figma, & prisma */}
+        {/* TODO: Need to ADD: JSON-server*/}
       </ul>
     </article>
   );

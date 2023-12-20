@@ -1,6 +1,5 @@
 import React from "react";
 
-// TODO: Update all href and links to be my website. Useful Links especially!
 // TODO: also need to fix linkedin and github to center/be buttons...
 
 const Footer = () => {
@@ -60,15 +59,7 @@ const Footer = () => {
                   <li>
                     <a
                       className='text-blueGray-600 hover:text-blueGray-800 font-semibold block pb-2 text-sm'
-                      href='https://www.creative-tim.com/presentation?ref=njs-profile'
-                    >
-                      About Us
-                    </a>
-                  </li>
-                  <li>
-                    <a
-                      className='text-blueGray-600 hover:text-blueGray-800 font-semibold block pb-2 text-sm'
-                      href='https://blog.creative-tim.com?ref=njs-profile'
+                      href='/blog'
                     >
                       Blog
                     </a>
@@ -76,9 +67,17 @@ const Footer = () => {
                   <li>
                     <a
                       className='text-blueGray-600 hover:text-blueGray-800 font-semibold block pb-2 text-sm'
-                      href='https://www.github.com/creativetimofficial?ref=njs-profile'
+                      href='https://github.com/DerekMalone'
                     >
                       Github
+                    </a>
+                  </li>
+                  <li>
+                    <a
+                      className='text-blueGray-600 hover:text-blueGray-800 font-semibold block pb-2 text-sm'
+                      href='/attribution'
+                    >
+                      Resource Attribution
                     </a>
                   </li>
                 </ul>
