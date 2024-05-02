@@ -1,5 +1,5 @@
 "use client";
-import { useState, useEffect } from "react";
+import React, { useState, useEffect } from "react";
 import { getAllProjects } from "../api/data/projects";
 import ProjectDetails from "../components/ProjectDetails";
 

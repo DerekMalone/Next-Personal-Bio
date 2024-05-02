@@ -1,37 +1,35 @@
 const gitHubUrl = "https://api.github.com";
 
-// TODO: Update all Images pulled from here to be actual images of projects.
-
 const projects = [
   {
     repoName: "Caffe-Cache",
     url: "https://github.com/DerekMalone/Caffe-Cache",
     image:
-      "https://images.pexels.com/photos/177598/pexels-photo-177598.jpeg?auto=compress&cs=tinysrgb&w=600"
+      "https://images.pexels.com/photos/177598/pexels-photo-177598.jpeg?auto=compress&cs=tinysrgb&w=600",
   },
   {
     repoName: "Minute-x-Minute",
     url: "https://github.com/DerekMalone/Minute-x-Minute",
-    image: "/images/website-images/MinuteXMinute.png"
+    image: "../public/images/MinuteXMinute.png",
   },
   {
     repoName: "Stark-MunderDifflin",
     url: "https://github.com/DerekMalone/Stark-MunderDifflin",
     image:
-      "https://images.pexels.com/photos/177598/pexels-photo-177598.jpeg?auto=compress&cs=tinysrgb&w=600"
+      "https://images.pexels.com/photos/177598/pexels-photo-177598.jpeg?auto=compress&cs=tinysrgb&w=600",
   },
   {
     repoName: "react-horder-squad-js",
     url: "https://github.com/DerekMalone/react-horder-squad-js",
     image:
-      "https://images.pexels.com/photos/177598/pexels-photo-177598.jpeg?auto=compress&cs=tinysrgb&w=600"
+      "https://images.pexels.com/photos/177598/pexels-photo-177598.jpeg?auto=compress&cs=tinysrgb&w=600",
   },
   {
     repoName: "hip-hop-pizza-and-wangs-to-hair-or-not-to-hair",
     url: "https://github.com/DerekMalone/hip-hop-pizza-and-wangs-to-hair-or-not-to-hair",
     image:
-      "https://images.pexels.com/photos/177598/pexels-photo-177598.jpeg?auto=compress&cs=tinysrgb&w=600"
-  }
+      "https://images.pexels.com/photos/177598/pexels-photo-177598.jpeg?auto=compress&cs=tinysrgb&w=600",
+  },
 ];
 
 const getAllProjects = () => {

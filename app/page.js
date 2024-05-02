@@ -1,6 +1,13 @@
-import Image from "next/image";
-import styles from "./page.module.css";
+// import Image from "next/image";
+// import styles from "./page.module.css";
+// import HomePage from "./home/page";
+import dynamic from "next/dynamic";
 import HomePage from "./home/page";
+
+// const DynamicHomePage = dynamic(() => import("./home/page"), {
+//   ssr: false,
+//   loading: () => <p>Loading...</p>,
+// });
 
 export default function Home() {
   // return (
@@ -15,6 +22,7 @@ export default function Home() {
 
   return (
     <>
+      {/* <DynamicHomePage /> */}
       <HomePage />
     </>
   );

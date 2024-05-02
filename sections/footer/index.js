@@ -1,7 +1,4 @@
-"use client";
 import React from "react";
-
-import { Icon } from "@iconify/react";
 
 // TODO: also need to fix linkedin and github to center/be buttons...
 
@@ -18,32 +15,38 @@ const Footer = () => {
               Find me on any of these platforms.
             </h5>
             <div className='mt-6 lg:mb-0 mb-6'>
-              <ul className='flex items-center justify-center pt-5 pl-2 sm:justify-start sm:pt-0'>
-                <li>
-                  <a href='https://www.linkedin.com/in/malone-derek/'>
-                    <div className='shadow-lg rounded-full outline-none focus:outline-none'>
-                      <Icon
-                        icon='bi:linkedin'
-                        style={{
-                          width: "2rem",
-                          height: "2rem",
-                          color: "#395cd5"
-                        }}
-                      />
-                    </div>
-                  </a>
-                </li>
-                <li className='pl-2'>
-                  <a href='https://github.com/DerekMalone'>
-                    <div className='shadow-lg rounded-full outline-none focus:outline-none'>
-                      <Icon
-                        icon='ant-design:github-filled'
-                        style={{ width: "2rem", height: "2rem" }}
-                      />
-                    </div>
-                  </a>
-                </li>
-              </ul>
+              <button
+                className='bg-white shadow-lg font-normal h-10 w-10 items-center justify-center align-center rounded-full outline-none focus:outline-none mr-2'
+                type='button'
+              >
+                <a
+                  href='https://www.linkedin.com/in/malone-derek/'
+                  className='pl-4 hover:text-yellow  h-10 w-10 items-center justify-center align-center rounded-full '
+                >
+                  {/* <box-icon
+                    className='sm-linkedin-logo'
+                    type='logo'
+                    name='linkedin-square'
+                    color='black '
+                    size='2xl'
+                  ></box-icon> */}
+                  <i className='bx bxl-linkedin text-2xl text-black hover:text-yellow'></i>
+                </a>
+              </button>
+              <button
+                className='bg-white shadow-lg font-normal h-10 w-10 items-center justify-center align-center rounded-full outline-none focus:outline-none mr-2'
+                type='button'
+              >
+                <a href='https://github.com/DerekMalone' className='pl-4'>
+                  {/* <box-icon
+                    className='sm-github-logo'
+                    type='logo'
+                    name='github'
+                    color='black '
+                    size='2xl'
+                  ></box-icon> */}
+                </a>
+              </button>
             </div>
           </div>
           <div className='w-full lg:w-6/12 px-4'>
@@ -53,14 +56,14 @@ const Footer = () => {
                   Useful Links
                 </span>
                 <ul className='list-unstyled'>
-                  {/* <li>
+                  <li>
                     <a
                       className='text-blueGray-600 hover:text-blueGray-800 font-semibold block pb-2 text-sm'
                       href='/blog'
                     >
                       Blog
                     </a>
-                  </li> */}
+                  </li>
                   <li>
                     <a
                       className='text-blueGray-600 hover:text-blueGray-800 font-semibold block pb-2 text-sm'

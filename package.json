@@ -9,7 +9,6 @@
     "lint": "next lint"
   },
   "dependencies": {
-    "boxicons": "^2.1.4",
     "cloudinary-react": "^1.8.1",
     "next": "13.5.4",
     "next-cloudinary": "^4.24.0",
@@ -17,6 +16,8 @@
     "react-dom": "^18"
   },
   "devDependencies": {
+    "@iconify/react": "^4.1.1",
+    "@iconify/tailwind": "^0.1.4",
     "autoprefixer": "^10.4.16",
     "eslint": "^8",
     "eslint-config-next": "13.5.4",

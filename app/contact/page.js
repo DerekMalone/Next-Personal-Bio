@@ -1,5 +1,8 @@
 "use client";
 import React from "react";
+import Image from "next/image";
+import phoneLogo from "../../public/images/general-logos/phoneLogo.png";
+import emailLogo from "../../public/images/general-logos/emailLogo.png";
 import { useRouter } from "next/navigation";
 
 const Contact = () => {
@@ -11,6 +14,8 @@ const Contact = () => {
     console.log("you submited a form");
     router.push("/");
   };
+
+  // TODO: This needs to be reworked.
 
   return (
     <div className='mx-20 py-16 md:py-20'>
@@ -49,7 +54,14 @@ const Contact = () => {
       <div className='flex flex-col justify-center pt-16 lg:flex-row'>
         <div className='w-full border-l-2 border-t-2 border-r-2 border-b-2 border-secondary-slate px-6 py-6 sm:py-8 lg:w-1/2'>
           <div className='items-center'>
-            {/* TODO: add phone image here */}
+            {/* TODO: fix phone image here 
+              So next.config.js has the loader set to cloudinary
+              this means that all Image tags will utilize cloudinary.
+            */}
+            <img
+              src='../../public/images/general-logos/phoneLogo.png'
+              alt='phone logo'
+            />
             <p className='pl-2 font-body font-bold uppercase text-secondary-slate lg:text-lg'>
               My Phone
             </p>
@@ -58,7 +70,8 @@ const Contact = () => {
         </div>
         <div className='w-full border-l-2 border-t-0 border-r-2 border-b-2 border-secondary-slate px-6 py-6 sm:py-8 lg:w-1/2 lg:border-l-0 lg:border-t-2'>
           <div className='items-center'>
-            {/* TODO: add phone image here */}
+            {/* TODO: fix email image here */}
+            <Image src={emailLogo} alt='phone logo' />
             <p className='pl-2 font-body font-bold uppercase text-secondary-slate lg:text-lg'>
               My Email
             </p>
