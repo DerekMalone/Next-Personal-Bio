@@ -15,6 +15,8 @@ const Contact = () => {
     router.push("/");
   };
 
+  // TODO: This needs to be reworked.
+
   return (
     <div className='mx-20 py-16 md:py-20'>
       <h2 className='text-center font-header text-4xl font-semibold uppercase text-primary sm:text-5xl lg: text-6xl'>

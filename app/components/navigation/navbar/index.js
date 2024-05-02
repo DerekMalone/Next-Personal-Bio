@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import Link from "next/link";
 import Button from "./Button";
 import Image from "next/image";
+import DMLogo from "public/images/personal-logos/transparent-DM-logo.png";
 // import Logo from "./Logo";
 
 export default function NavBar() {
@@ -11,14 +12,15 @@ export default function NavBar() {
   };
 
   const gradient = {
-    background: "linear-gradient(black 0%, rgba(0, 0, 0, 0) 100%)",
+    background: "linear-gradient(black 0%, rgba(0, 0, 0, 0) 100%)"
   };
   return (
     <nav className='w-full  p-5 uppercase style={gradient}'>
       <div className='flex justify-between items-center mx-12'>
         <a href='/'>
           <img
-            src='/images/transparent-DM-logo.png'
+            src='/images/personal-logos/transparent-DM-logo.png'
+            // src='/images/transparent-DM-logo.png'
             className='h-16'
             alt='Logo'
           />
@@ -101,11 +103,11 @@ export default function NavBar() {
               <p>Contact</p>
             </Link>
           </li>
-          <li>
+          {/* <li>
             <Link href='/blog'>
               <p>Blog</p>
             </Link>
-          </li>
+          </li> */}
           {/* <Button /> */}
         </ul>
         {/* </div>

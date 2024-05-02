@@ -2,7 +2,7 @@
 import dynamic from "next/dynamic";
 import React from "react";
 // import Banner from "../components/landingPage/Banner";
-// import Profile from "../components/landingPage/Profile";
+import Profile from "../components/landingPage/Profile";
 import AboutMe from "../components/landingPage/AboutMe";
 import BlogSample from "../components/landingPage/BlogSample";
 
@@ -27,9 +27,11 @@ export default function HomePage() {
       <div>
         {/* can add style to above div and add background image if needed (need to look up how to do this in Next) */}
         {/* <Banner /> */}
-        <DynamicProfile />
-        <DynamicAboutMe />
-        <DynamicBlogSample />
+        <Profile />
+        {/* <DynamicProfile /> */}
+        {/* <DynamicAboutMe /> */}
+        <AboutMe />
+        {/* <DynamicBlogSample /> */}
       </div>
     </div>
   );

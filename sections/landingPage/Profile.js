@@ -1,6 +1,4 @@
-"use client";
 import { CldImage } from "next-cloudinary";
-import { Icon } from "@iconify/react";
 // import "boxicons";
 
 const Profile = () => {
@@ -9,7 +7,7 @@ const Profile = () => {
     <>
       <div
         className="w-full
-        h-[75vh]
+        h-screen
         max-h-[90rem]
         p-24
         overflow-hidden
@@ -47,7 +45,7 @@ const Profile = () => {
             before:z-[-5]'
       ></div> */}
 
-        <section className='container relative z-30 pt-20 pb-12 sm:pt-[12vh] sm:pb-48 md:pt-[12vh] lg:pt-[22vh] lg:pb-48 '>
+        <section className='container relative z-30 pt-20 pb-12 sm:pt-56 sm:pb-48 lg:pt-64 lg:pb-48'>
           <div className='flex flex-col items-center justify-center lg:flex-row'>
             <article className='rounded-full border-8 border-primary-burgandy opacity-100 shadow-xl'>
               <CldImage
@@ -68,10 +66,6 @@ const Profile = () => {
                     {`Let's connect`}
                   </p>
                   <div className='hidden sm:block'>
-                    <Icon
-                      icon='vaadin:chevron-right'
-                      style={{ color: "#8b6474" }}
-                    />
                     {/* <box-icon
                       name='chevron-right'
                       color='yellow'
@@ -81,25 +75,23 @@ const Profile = () => {
                 </div>
                 <ul className='flex items-center justify-center pt-5 pl-2 sm:justify-start sm:pt-0'>
                   <li>
-                    <a href='https://www.linkedin.com/in/malone-derek/'>
-                      <Icon
-                        icon='devicon-plain:linkedin'
-                        // style={{
-                        //   width: "1.2rem",
-                        //   height: "1.2rem",
-                        //   hover: "yellow"
-                        // }}
-                        className='hover:text-yellow'
-                      />
-                      {/* <i className='bx bxl-linkedin text-2xl text-black hover:text-yellow'></i> */}
+                    <a
+                      href='https://www.linkedin.com/in/malone-derek/'
+                      className='pl-4 hover:text-yellow'
+                    >
+                      {/* <box-icon
+                        className='sm-linkedin-logo'
+                        type='logo'
+                        name='linkedin-square'
+                        color='black '
+                        animation='tada-hover'
+                        size='2xl'
+                      ></box-icon> */}
+                      <i className='bx bxl-linkedin text-2xl text-black hover:text-yellow'></i>
                     </a>
                   </li>
-                  <li className='pl-2'>
-                    <a href='https://github.com/DerekMalone'>
-                      <Icon
-                        icon='ant-design:github-filled'
-                        // style={{ "pl-2" }}
-                      />
+                  <li>
+                    <a href='https://github.com/DerekMalone' className='pl-4'>
                       {/* <box-icon
                         className='sm-github-logo'
                         type='logo'
