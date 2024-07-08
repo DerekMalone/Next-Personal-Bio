@@ -2,8 +2,6 @@ import React, { useState } from "react";
 import Link from "next/link";
 import Button from "./Button";
 import Image from "next/image";
-import DMLogo from "public/images/personal-logos/transparent-DM-logo.png";
-// import Logo from "./Logo";
 
 export default function NavBar() {
   const [menuStatus, setMenuStatus] = useState(false);
@@ -18,9 +16,10 @@ export default function NavBar() {
     <nav className='w-full  p-5 uppercase style={gradient}'>
       <div className='flex justify-between items-center mx-12'>
         <a href='/'>
-          <img
+          <Image
+            width='64'
+            height='64'
             src='/images/personal-logos/transparent-DM-logo.png'
-            // src='/images/transparent-DM-logo.png'
             className='h-16'
             alt='Logo'
           />

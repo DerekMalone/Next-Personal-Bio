@@ -58,8 +58,10 @@ const Contact = () => {
               So next.config.js has the loader set to cloudinary
               this means that all Image tags will utilize cloudinary.
             */}
-            <img
-              src='../../public/images/general-logos/phoneLogo.png'
+            <Image
+              width={32}
+              height={32}
+              src='/images/general-logos/phoneLogo.png'
               alt='phone logo'
             />
             <p className='pl-2 font-body font-bold uppercase text-secondary-slate lg:text-lg'>
@@ -71,7 +73,12 @@ const Contact = () => {
         <div className='w-full border-l-2 border-t-0 border-r-2 border-b-2 border-secondary-slate px-6 py-6 sm:py-8 lg:w-1/2 lg:border-l-0 lg:border-t-2'>
           <div className='items-center'>
             {/* TODO: fix email image here */}
-            <Image src={emailLogo} alt='phone logo' />
+            <Image
+              width={32}
+              height={32}
+              src='/images/general-logos/emailLogo.png'
+              alt='email logo'
+            />
             <p className='pl-2 font-body font-bold uppercase text-secondary-slate lg:text-lg'>
               My Email
             </p>
