@@ -23,14 +23,12 @@ const projects = [
   {
     repoName: "react-horder-squad-js",
     url: "https://github.com/DerekMalone/react-horder-squad-js",
-    image:
-      "https://images.pexels.com/photos/177598/pexels-photo-177598.jpeg?auto=compress&cs=tinysrgb&w=600"
+    image: "/images/website-images/HoarderDashboard.png"
   },
   {
     repoName: "hip-hop-pizza-and-wangs-to-hair-or-not-to-hair",
     url: "https://github.com/DerekMalone/hip-hop-pizza-and-wangs-to-hair-or-not-to-hair",
-    image:
-      "https://images.pexels.com/photos/177598/pexels-photo-177598.jpeg?auto=compress&cs=tinysrgb&w=600"
+    image: "/images/website-images/HipHopPizzaandWangs.png"
   }
 ];
 
