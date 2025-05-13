@@ -9,6 +9,7 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "@react-email/components": "^0.0.41",
     "cloudinary-react": "^1.8.1",
     "next": "14.2.28",
     "next-cloudinary": "^4.24.0",

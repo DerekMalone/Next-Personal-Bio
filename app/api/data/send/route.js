@@ -1,4 +1,4 @@
-import { EmailTemplate } from "@/app/components/email-template";
+import { ContactMeEmail } from "@/app/components/email-template";
 import { NextResponse } from "next/server";
 import { Resend } from "resend";
 
@@ -24,10 +24,11 @@ export async function POST(request) {
 
     // Send email using Resend
     const { data, error } = await resend.emails.send({
-      from: "onboarding@resend.dev", // Use a verified domain or the Resend default sender
-      to: "derek.s.malone@gmail.com",
+      // from: "Website.Contact.Form@derekmalone.dev", // Use a verified domain or the Resend default sender
+      from: "DMWebsiteContact@derekmalone.dev",
+      to: "laxmalone@gmail.com",
       subject: "Contact Form Submission",
-      react: EmailTemplate({
+      react: ContactMeEmail({
         contactName,
         email,
         message

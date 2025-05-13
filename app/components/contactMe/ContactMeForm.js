@@ -28,7 +28,7 @@ export default function ContactMeForm({ onSuccess }) {
     try {
       console.log("Submitting form data:", formData);
 
-      const response = await fetch("/api/send", {
+      const response = await fetch("/api/data/send", {
         method: "POST",
         headers: {
           "Content-Type": "application/json"
