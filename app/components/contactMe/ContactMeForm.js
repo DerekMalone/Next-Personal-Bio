@@ -116,7 +116,7 @@ export default function ContactMeForm({ onSuccess }) {
         rows='10'
         required
       ></textarea>
-      <div className="flex flex-col items-center">
+      <div className="flex flex-col items-center ">
       <button
         type='submit'
         disabled={isSubmitting}

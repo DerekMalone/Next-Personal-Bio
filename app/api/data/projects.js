@@ -1,13 +1,11 @@
 const gitHubUrl = "https://api.github.com";
 
-// TODO: Update all Images pulled from here to be actual images of projects.
-
 const projects = [
   {
     repoName: "Caffe-Cache",
     url: "https://github.com/DerekMalone/Caffe-Cache",
     image:
-      "https://images.pexels.com/photos/177598/pexels-photo-177598.jpeg?auto=compress&cs=tinysrgb&w=600"
+      "/images/website-images/CafeCache.png"
   },
   {
     repoName: "Minute-x-Minute",
@@ -18,7 +16,7 @@ const projects = [
     repoName: "Stark-MunderDifflin",
     url: "https://github.com/DerekMalone/Stark-MunderDifflin",
     image:
-      "https://images.pexels.com/photos/177598/pexels-photo-177598.jpeg?auto=compress&cs=tinysrgb&w=600"
+      "/images/website-images/MunderDifflin.png"
   },
   {
     repoName: "react-horder-squad-js",
