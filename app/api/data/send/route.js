@@ -2,12 +2,11 @@ import { ContactMeEmail } from "@/app/components/email-template";
 import { NextResponse } from "next/server";
 import { Resend } from "resend";
 
-// Proper Next.js API route handler
 export async function POST(request) {
   try {
     // Initialize Resend with API key
-    const resend = new Resend(process.env.RESEND_API_KEY); // Remove NEXT_PUBLIC_ prefix
-
+    const resend = new Resend(process.env.RESEND_API_KEY); 
+    
     // Parse the request body from the form submission
     const body = await request.json();
     const { contactName, email, message } = body;
@@ -22,9 +21,7 @@ export async function POST(request) {
 
     console.log("Sending email with:", { contactName, email, message });
 
-    // Send email using Resend
     const { data, error } = await resend.emails.send({
-      // from: "Website.Contact.Form@derekmalone.dev", // Use a verified domain or the Resend default sender
       from: "DMWebsiteContact@derekmalone.dev",
       to: "laxmalone@gmail.com",
       subject: "Contact Form Submission",
