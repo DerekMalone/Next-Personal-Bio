@@ -32,6 +32,7 @@ const Contact = () => {
         <div className='w-full border-l-2 border-t-2 border-r-2 border-b-2 border-secondary-slate px-6 py-6 sm:py-8 lg:w-1/2'>
           <div className='flex flex-col justify-center items-center'>
             <Image
+              className="dark:filter dark:invert"
               width={32}
               height={32}
               src='/images/general-logos/phoneLogo.png'
@@ -43,6 +44,7 @@ const Contact = () => {
         <div className='w-full border-l-2 border-t-0 border-r-2 border-b-2 border-secondary-slate px-6 py-6 sm:py-8 lg:w-1/2 lg:border-l-0 lg:border-t-2'>
           <div className='flex flex-col justify-center place-items-center'>
             <Image
+              className="dark:filter dark:invert"
               width={32}
               height={32}
               src='/images/general-logos/emailLogo.png'

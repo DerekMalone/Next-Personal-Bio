@@ -13,14 +13,14 @@ export default function NavBar() {
     background: "linear-gradient(black 0%, rgba(0, 0, 0, 0) 100%)"
   };
   return (
-    <nav className='w-full  p-5 uppercase style={gradient}'>
+    <nav className='w-full  p-5 uppercase style={gradient} dark:bg-gray-800'>
       <div className='flex justify-between items-center mx-12'>
         <a href='/'>
           <Image
             width='64'
             height='64'
             src='/images/personal-logos/transparent-DM-logo.png'
-            className='h-16 dmLogo'
+            className='h-16 dmLogo dark:filter dark:invert dark:grayscale-100'
             alt='Logo'
           />
         </a>
@@ -28,7 +28,7 @@ export default function NavBar() {
         <div className='lg:hidden '>
           <button
             onClick={toggleMenu}
-            className='text-black dark:text-white focus:outline-none cursor-pointer'
+            className='text-black dark:text-gray-100 focus:outline-none cursor-pointer'
           >
             {menuStatus ? (
               // Render X icon when the menu is open
@@ -81,7 +81,7 @@ export default function NavBar() {
         <ul
           className={`lg:flex lg:space-x-8 lg:items-center lg:justify-center content-end font-semibold text-xl ${
             menuStatus
-              ? "flex flex-col items-start justify-between gap-2 fixed z-50 bg-slate-900 text-white right-0 top-0 w-1/2 h-[400px] rounded-bl-md shadow-xl p-8"
+              ? "flex flex-col items-start justify-between gap-2 fixed z-50 bg-slate-900 text-white right-0 top-24 w-2/5 h-auto rounded-bl-md shadow-xl p-8"
               : "hidden"
           }`}
         >
