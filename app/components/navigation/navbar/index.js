@@ -20,7 +20,7 @@ export default function NavBar() {
             width='64'
             height='64'
             src='/images/personal-logos/transparent-DM-logo.png'
-            className='h-16'
+            className='h-16 dmLogo'
             alt='Logo'
           />
         </a>
@@ -28,7 +28,7 @@ export default function NavBar() {
         <div className='lg:hidden '>
           <button
             onClick={toggleMenu}
-            className='text-black focus:outline-none cursor-pointer'
+            className='text-black dark:text-white focus:outline-none cursor-pointer'
           >
             {menuStatus ? (
               // Render X icon when the menu is open
