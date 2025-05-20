@@ -13,7 +13,7 @@ export default function NavBar() {
     background: "linear-gradient(black 0%, rgba(0, 0, 0, 0) 100%)"
   };
   return (
-    <nav className='w-full  p-5 uppercase style={gradient} dark:bg-gray-800'>
+    <nav className='w-full  p-5 uppercase z-50 style={gradient} dark:bg-gray-800'>
       <div className='flex justify-between items-center mx-12'>
         <a href='/'>
           <Image
@@ -74,14 +74,13 @@ export default function NavBar() {
           ></div>
         )}
 
-        {/* <div className='p-3 w-full h-20 bg-slate-500 sticky top-0'>
-          <div className='container mx-auto px-4 h-full'>
-            <div className='flex justify-between items-center h-full'>
-              <Logo /> */}
+        {/* //! NEED TO PICK UP AT With changes suggested by Claude
+        // ? https://claude.ai/chat/a777fd81-8eb4-43e6-88bd-fe3913016304
+         */}
         <ul
           className={`lg:flex lg:space-x-8 lg:items-center lg:justify-center content-end font-semibold text-xl ${
             menuStatus
-              ? "flex flex-col items-start justify-between gap-2 fixed z-50 bg-slate-900 text-white right-0 top-24 w-2/5 h-auto rounded-bl-md shadow-xl p-8"
+              ? "flex flex-col items-start justify-between gap-2 opacity-75 fixed z-40 bg-slate-900 text-white right-0 top-[6.5rem] w-2/5 h-auto rounded-bl-2xl rounded-br-none shadow-xl p-8"
               : "hidden"
           }`}
         >
