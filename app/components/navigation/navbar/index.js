@@ -9,18 +9,16 @@ export default function NavBar() {
     setMenuStatus(!menuStatus);
   };
 
-  const gradient = {
-    background: "linear-gradient(black 0%, rgba(0, 0, 0, 0) 100%)"
-  };
+
   return (
-    <nav className='w-full  p-5 uppercase style={gradient}'>
+    <nav className='w-full  p-5 uppercase z-50 bg-gradient-to-r from-gray-900 to-gray-600' >
       <div className='flex justify-between items-center mx-12'>
         <a href='/'>
           <Image
             width='64'
             height='64'
             src='/images/personal-logos/transparent-DM-logo.png'
-            className='h-16'
+            className='h-16 dmLogo dark:filter dark:invert dark:grayscale-100'
             alt='Logo'
           />
         </a>
@@ -28,7 +26,7 @@ export default function NavBar() {
         <div className='lg:hidden '>
           <button
             onClick={toggleMenu}
-            className='text-black focus:outline-none cursor-pointer'
+            className='text-black dark:text-gray-100 focus:outline-none cursor-pointer'
           >
             {menuStatus ? (
               // Render X icon when the menu is open
@@ -74,30 +72,26 @@ export default function NavBar() {
           ></div>
         )}
 
-        {/* <div className='p-3 w-full h-20 bg-slate-500 sticky top-0'>
-          <div className='container mx-auto px-4 h-full'>
-            <div className='flex justify-between items-center h-full'>
-              <Logo /> */}
         <ul
-          className={`lg:flex lg:space-x-8 lg:items-center lg:justify-center content-end font-semibold text-xl ${
+          className={`lg:flex lg:space-x-8 lg:items-center lg:justify-center content-end font-semibold ${
             menuStatus
-              ? "flex flex-col items-start justify-between gap-2 fixed z-50 bg-slate-900 text-white right-0 top-0 w-1/2 h-[400px] rounded-bl-md shadow-xl p-8"
+              ? "flex flex-col items-start justify-between gap-2 opacity-75 fixed z-40  text-white right-0 top-[6.2rem] w-21/5 h-auto rounded-bl-2xl rounded-br-none shadow-xl p-8 bg-gradient-to-tr from-slate-750 to-slate-600"
               : "hidden"
           }`}
         >
           {" "}
           {/* className='hidden md:flex gap-x-6 text-white' */}
-          <li>
+          <li className=" py-2 w-full">
             <Link href='/'>
               <p>Home</p>
             </Link>
           </li>
-          <li>
+          <li className=" py-2 w-full">
             <Link href='/portfolio'>
               <p>Portfolio</p>
             </Link>
           </li>
-          <li>
+          <li className=" py-2 w-full">
             <Link href='/contact'>
               <p>Contact</p>
             </Link>
