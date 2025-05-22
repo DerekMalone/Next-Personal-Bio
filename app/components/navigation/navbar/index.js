@@ -11,7 +11,7 @@ export default function NavBar() {
 
 
   return (
-    <nav className='w-full  p-5 uppercase z-50 bg-gradient-to-r from-gray-900 to-gray-600' >
+    <nav className='w-full  p-5 uppercase z-50 dark:bg-gradient-to-r dark:from-gray-900 dark:to-gray-600' >
       <div className='flex justify-between items-center mx-12'>
         <a href='/'>
           <Image
@@ -75,7 +75,7 @@ export default function NavBar() {
         <ul
           className={`lg:flex lg:space-x-8 lg:items-center lg:justify-center content-end font-semibold ${
             menuStatus
-              ? "flex flex-col items-start justify-between gap-2 opacity-75 fixed z-40  text-white right-0 top-[6.2rem] w-21/5 h-auto rounded-bl-2xl rounded-br-none shadow-xl p-8 bg-gradient-to-tr from-slate-750 to-slate-600"
+              ? "flex flex-col items-start justify-between gap-2 opacity-75 fixed z-40 border-l-2 border-b-2 border-gray-600  dark:border-l-2 dark:border-b-2 dark:border-gray-100 dark:text-white right-0 top-[6.5rem] w-21/5 h-auto rounded-bl-2xl rounded-br-none shadow-xl p-8 bg-gradient-to-t from-gray-200 to-gray-50 dark:bg-gradient-to-tr dark:from-gray-900 dark:to-slate-600"
               : "hidden"
           }`}
         >
