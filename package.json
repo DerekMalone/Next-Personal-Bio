@@ -10,6 +10,7 @@
   },
   "dependencies": {
     "@react-email/components": "^0.0.41",
+    "@supabase/supabase-js": "^2.53.0",
     "cloudinary-react": "^1.8.1",
     "firebase": "^12.0.0",
     "next": "14.2.28",
