@@ -1,6 +1,6 @@
 "use client";
 import React, { useState, useEffect } from "react";
-import getProject from "./helpers/data";
+import getProject from "../api/data/projectsData";
 import Image from "next/image";
 
 const ProjectDetails = ({ projectName, projectImg }) => {
@@ -10,7 +10,7 @@ const ProjectDetails = ({ projectName, projectImg }) => {
     getProject(projectName).then(setProject);
   }, []);
 
-  // TODO: Need to pull screenshots of each landing page for project and display that here instead of text...
+
 
   return (
     <section className='mx-auto transform transition-all hover:scale-105 md:mx-0'>
