@@ -1,6 +1,7 @@
 "use client";
 import { CldImage } from "next-cloudinary";
 import { Icon } from "@iconify/react";
+import AboutMe from "./AboutMe";
 // import "boxicons";
 
 const Profile = () => {
@@ -116,6 +117,7 @@ const Profile = () => {
           </div>
         </section>
       </div>
+      <AboutMe /> 
     </>
   );
 };
