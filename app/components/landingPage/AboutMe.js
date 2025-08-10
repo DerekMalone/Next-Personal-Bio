@@ -1,7 +1,22 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import TechStack from "../techstack/TechStack";
+import { getAboutMe } from "../../api/data/aboutMeData";
 
 const AboutMe = () => {
+  const [aboutMe, setAboutMe] = useState({});
+
+  useEffect(() => {
+    const loadData = async () => {
+        try {
+            const { data } = await getAboutMe();
+            setAboutMe(data || {});
+        } catch (err) {
+            setError('Failed to load data');
+        }
+    };
+    loadData();
+}, []);
+
   return (
     <div className='flex flex-col items-center py-16 md:py-20 lg:flex-row shadow-lg'>
       <section className='w-full text-center sm:w-3/4 lg:2-3/5 lg:text-left'>
@@ -12,17 +27,8 @@ const AboutMe = () => {
           {`I'm Derek Malone, a Software Developer!`}
         </h5>
         <p className='pt-6 font-body leading-relaxed text-grey-20 lg:ml-5 m-5'>
-          {`I am a passionate software developer with a knack for turning ideas
-          into efficient and user-friendly applications. Proficient in
-          JavaScript, C#, Python, React, Next, ASP.NET, and Django with a focus
-          in web development. Coached 520 students with a 92% module completion
-          rate by delivering extensive instruction in Web Development
-          curriculum. I'm dedicated to creating software solutions that make a
-          positive impact on people's lives. I thrive on tackling complex
-          problems and continuously learning to stay at the forefront of
-          technology. Effective communicator who enjoys collaborating with
-          cross-functional teams to deliver top-notch software solutions.`}
-        </p>
+          {aboutMe.bio}
+        </p>        
       </section>
       <TechStack />
     </div>

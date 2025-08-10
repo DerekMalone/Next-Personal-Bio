@@ -5,10 +5,19 @@ import Image from "next/image";
 
 const ProjectDetails = ({ projectName, projectImg }) => {
   const [project, setProject] = useState({});
+  const [error, setError] = useState('');
 
   useEffect(() => {
-    getProject(projectName).then(setProject);
-  }, []);
+    const loadData = async () => {
+      try {
+        const { data } = await getProject(projectName);
+        setProject(data || {});
+      } catch (err) {
+        setError('Failed to load data');
+      }
+    };
+    loadData();
+  }, [projectName]);
 
 
 
@@ -18,10 +27,12 @@ const ProjectDetails = ({ projectName, projectImg }) => {
         {project.name}
       </h2>
       <a href={project.html_url} type='button' className='btn btn-link'>
-        <img
+        <Image
           className='w-full shadow'
           src={projectImg}
           alt={`${project.name} screenshot`}
+          width={500}
+          height={500}
         />
       </a>
     </section>

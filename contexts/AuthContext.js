@@ -11,6 +11,7 @@ export const useAuth = () => {
 
 export const AuthProvider = ({ children }) => {
   const [currentUser, setCurrentUser] = useState(null);
+  const [session, setSession] = useState(null);
   const [loading, setLoading] = useState(true);
 
   // Sign in function
@@ -57,6 +58,7 @@ export const AuthProvider = ({ children }) => {
     // Get initial session
     const getInitialSession = async () => {
       const { data: { session } } = await supabase.auth.getSession();
+      setSession(session);
       setCurrentUser(session?.user ?? null);
       setLoading(false);
     };
@@ -66,6 +68,7 @@ export const AuthProvider = ({ children }) => {
     // Listen for auth changes
     const { data: { subscription } } = supabase.auth.onAuthStateChange(
       (event, session) => {
+        setSession(session);
         setCurrentUser(session?.user ?? null);
         setLoading(false);
       }
@@ -76,6 +79,7 @@ export const AuthProvider = ({ children }) => {
 
   const value = {
     currentUser,
+    session,
     login,
     logout,
     isAdmin,
