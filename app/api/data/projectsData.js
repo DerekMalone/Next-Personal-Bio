@@ -1,3 +1,5 @@
+import supabase from "../../../lib/supabase";
+
 const gitHubUrl = "https://api.github.com";
 
 const projects = [
@@ -34,6 +36,16 @@ const getAllProjects = () => {
   return structuredClone(projects);
 };
 
+
+const getProject = async (id) => {
+  const {data, error } = await supabase
+    .from('projects')
+    .select('*')
+    .single();
+  return { data, error };a
+}
+
+
 const getProject = async (repoName) => {
   fetch(`${gitHubUrl}/repos/DerekMalone/${repoName}`)
     .then((response) => response.json)
@@ -41,3 +53,53 @@ const getProject = async (repoName) => {
 };
 
 export { getAllProjects, getProject };
+
+
+// import supabase from "../../../lib/supabase";
+
+
+// export const getAboutMe = async () => {
+//     const { data, error } = await supabase
+//         .from('aboutMe')
+//         .select('*')
+//         .single();
+//     return { data, error };
+// };
+
+// export const createAboutMe = async (session, aboutMe) => {
+    
+//     if (!session) {
+//         return { error: { message: 'Not authenticated' } };
+//     }
+    
+//     return await supabase
+//         .from('aboutMe')
+//         .insert([{
+//             ...aboutMe,
+//             userId: session.user.id
+//         }])
+//         .select();
+// };
+
+// export const updateAboutMe = async (session, id, bio) => {
+//     const { data, error } = await supabase
+//         .from('aboutMe')
+//         .update({ bio })
+//         .eq('id', id)
+//         .eq('userId', session.currentUser.id)
+//         .select()
+//         .single();
+//     return { data, error };
+// };
+
+// export const deleteAboutMe = async (session, id) => {
+//     if (!session) {
+//         return { error: { message: 'Not authenticated' } };
+//     }
+    
+//     return await supabase
+//         .from('aboutMe')
+//         .delete()
+//         .eq('id', id)
+//         .eq('user_id', session.user.id);
+// };

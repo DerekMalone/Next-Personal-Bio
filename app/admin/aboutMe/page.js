@@ -1,4 +1,5 @@
-import { AboutMeForm } from '../../components/admin/aboutMeForm';
+import { AboutMeForm } from '../../components/admin/aboutMe/aboutMeForm';
+
 
 export default function AboutMePage() {
     return (

@@ -2,8 +2,8 @@
 
 import { useState } from 'react';
 import { useRouter } from 'next/navigation';
-import { updateAboutMe, getAboutMe } from '../../api/data/aboutMeData';
-import { useAuth } from "../../../contexts/AuthContext";
+import { updateAboutMe, getAboutMe } from '../../../api/data/aboutMeData';
+import { useAuth } from "../../../../contexts/AuthContext";
 import { useEffect } from 'react';
 
 
@@ -13,19 +13,6 @@ export const AboutMeForm = () => {
     const [isLoading, setIsLoading] = useState(false);
     const router = useRouter();
     const session = useAuth();
-    
-    
-    // useEffect(() => {
-    //     const loadData = async () => {
-    //         try {
-    //             const { data } = await getAboutMe(session);
-    //             setAboutMe(data || {});
-    //         } catch (err) {
-    //             setError('Failed to load data');
-    //         }
-    //     };
-    //     loadData();
-    // }, [session]);
 
     useEffect(() => {
         const loadData = async () => {
