@@ -66,6 +66,11 @@ export default function AdminDashboard({ onLogout }) {
             <div className="bg-white p-6 rounded-lg shadow">
               <h3 className="text-lg font-semibold text-gray-900 mb-4">Content Management</h3>
               <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+              
+              {/* 
+              // TODO: Will need to update all buttons to links 
+              */}
+
                 <button className="p-4 border-2 border-dashed border-gray-300 rounded-lg hover:border-indigo-500 transition-colors">
                   <div className="text-center">
                     <span className="text-2xl">📝</span>
@@ -73,13 +78,7 @@ export default function AdminDashboard({ onLogout }) {
                     <p className="text-xs text-gray-500">Create, edit, and publish blog content</p>
                   </div>
                 </button>
-                {/* <button className="p-4 border-2 border-dashed border-gray-300 rounded-lg hover:border-indigo-500 transition-colors">
-                  <div className="text-center">
-                    <span className="text-2xl">🎨</span>
-                    <p className="mt-2 text-sm font-medium text-gray-900">Portfolio Projects</p>
-                    <p className="text-xs text-gray-500">Update project showcase</p>
-                  </div>
-                </button> */}
+
                 <Link href="/admin/projects" className="p-4 border-2 border-dashed border-gray-300 rounded-lg hover:border-indigo-500 transition-colors">
                   <div className="text-center">
                     <span className="text-2xl">🎨</span>
@@ -87,6 +86,8 @@ export default function AdminDashboard({ onLogout }) {
                     <p className="text-xs text-gray-500">Update project showcase</p>
                   </div>
                 </Link>
+
+                {/* Not sure if I will be doing this component or not. */}
                 <button className="p-4 border-2 border-dashed border-gray-300 rounded-lg hover:border-indigo-500 transition-colors">
                   <div className="text-center">
                     <span className="text-2xl">📧</span>

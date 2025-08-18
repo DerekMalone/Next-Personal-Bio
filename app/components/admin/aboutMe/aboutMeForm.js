@@ -54,7 +54,7 @@ export const AboutMeForm = () => {
         <div>
             <h2>About Me</h2>
             <form onSubmit={handleSubmit}>
-                <textarea id={aboutMe.id} value={aboutMe.bio} rows={5} cols={50} name="bio" onChange={handleChange} placeholder="aboutMe.bio" />
+                <textarea id={aboutMe.id} value={aboutMe.bio} rows={5} cols={50} name="bio" onChange={handleChange} placeholder="About Me Bio" />
                 <button type="submit">Save</button>
             </form>
         </div>

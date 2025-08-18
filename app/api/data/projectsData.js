@@ -36,16 +36,6 @@ const getAllProjects = () => {
   return structuredClone(projects);
 };
 
-
-const getProject = async (id) => {
-  const {data, error } = await supabase
-    .from('projects')
-    .select('*')
-    .single();
-  return { data, error };a
-}
-
-
 const getProject = async (repoName) => {
   fetch(`${gitHubUrl}/repos/DerekMalone/${repoName}`)
     .then((response) => response.json)
@@ -55,51 +45,67 @@ const getProject = async (repoName) => {
 export { getAllProjects, getProject };
 
 
-// import supabase from "../../../lib/supabase";
+// Will be using endpoints below once admin projects components are created
 
 
-// export const getAboutMe = async () => {
-//     const { data, error } = await supabase
-//         .from('aboutMe')
-//         .select('*')
-//         .single();
-//     return { data, error };
-// };
+// const getProject = async (id) => {
+//   const {data, error } = await supabase
+//     .from('projects')
+//     .select('*')
+//     .eq('id', id)
+//     .single();
+//   return { data, error };
+// }
 
-// export const createAboutMe = async (session, aboutMe) => {
-    
-//     if (!session) {
-//         return { error: { message: 'Not authenticated' } };
-//     }
-    
-//     return await supabase
-//         .from('aboutMe')
-//         .insert([{
-//             ...aboutMe,
-//             userId: session.user.id
-//         }])
-//         .select();
-// };
 
-// export const updateAboutMe = async (session, id, bio) => {
-//     const { data, error } = await supabase
-//         .from('aboutMe')
-//         .update({ bio })
-//         .eq('id', id)
-//         .eq('userId', session.currentUser.id)
-//         .select()
-//         .single();
-//     return { data, error };
-// };
 
-// export const deleteAboutMe = async (session, id) => {
-//     if (!session) {
-//         return { error: { message: 'Not authenticated' } };
-//     }
-    
-//     return await supabase
-//         .from('aboutMe')
-//         .delete()
-//         .eq('id', id)
-//         .eq('user_id', session.user.id);
-// };
+/* 
+const createProject = async (session, project) => {
+  if (!session) {
+    return { error: { message: 'Not authenticated' } };
+  }
+  const {data, error} = await supabase
+    .from('projects')
+    .insert([
+      {
+        ...project,
+        userId: session.user.id
+      }
+    ])
+    .select();
+  return { data, error };
+}
+*/
+
+/* 
+const updateProject = async (session, id, project) => {
+  if (!session) {
+    return { error: { message: 'Not authenticated' } };
+  }
+  const {data, error} = await supabase
+    .from('projects')
+    .update({
+      ...project,
+      userId: session.user.id
+    })
+    .eq('id', id)
+    .eq('userId', session.currentUser.id)
+    .select()
+    .single();
+  return { data, error };
+}
+*/
+
+/* 
+const deleteProject = async (session, id) => {
+  if (!session) {
+    return { error: { message: 'Not authenticated' } };
+  }
+  const {data, error} = await supabase
+    .from('projects')
+    .delete()
+    .eq('id', id)
+    .eq('userId', session.currentUser.id);
+  return { data, error };
+}
+*/
