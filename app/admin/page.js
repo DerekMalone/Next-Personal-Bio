@@ -1,10 +1,10 @@
 'use client';
 
-import { AuthProvider, useAuth } from '../../contexts/AuthContext';
 import AdminLogin from '../components/AdminLogin';
 import AdminDashboard from '../components/AdminDashboard';
+import { useAuth } from "../../contexts/AuthContext";
 
-function AdminContent() {
+export default function AdminPage() {
   const { currentUser, isAdmin, loading } = useAuth();
 
   const handleLogin = () => {
@@ -30,16 +30,8 @@ function AdminContent() {
       {!isAdmin() ? (
         <AdminLogin onLogin={handleLogin} />
       ) : (
-        <AdminDashboard onLogout={handleLogout} />
+        <AdminDashboard currentUser={currentUser} onLogout={handleLogout} />
       )}
     </div>
-  );
-}
-
-export default function AdminPage() {
-  return (
-    <AuthProvider>
-      <AdminContent />
-    </AuthProvider>
   );
 }

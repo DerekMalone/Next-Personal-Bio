@@ -6,28 +6,31 @@ import Image from 'next/image';
 import { getProject } from '../../../api/data/projectsData';
 
 
-export default function AdminProjectCard({ projectId, projectImg }) {
-  const [project, setProject] = useState({});
+export default function AdminProjectCard({ project }) {
+  // const [ghProject, setGHProject] = useState({});
   const [editedProject, setEditedProject] = useState({});
   const [isEditing, setIsEditing] = useState(false);
   const [error, setError] = useState('');
   const router = useRouter();
 
+// Form data points Name, URL, Image
+
 // Temporary Call for test data
-// TODO: Try again once github api limit has been reset.
+// TODO: The data I am accessing with be from Supabase...
   useEffect(() => {
-    const loadData = async () => {
-      try {
-        const { data } = await getProject(projectId);
-        setProject(data || {});
-        setEditedProject(data || {});
-      } catch (err) {
-        setError('Failed to load data');
-      }
-      console.log(data);
-    };
-    loadData();
-  }, [projectId]);
+    setEditedProject(project);
+    // const loadData = async () => {
+    //   try {
+    //     const data = await getProject(project.repoName);
+    //     console.log("ProjectDetails", data);
+    //     setGHProject(data || {});
+    //     setEditedProject(data || {});
+    //   } catch (err) {
+    //     setError('Failed to load data', err);
+    //   }
+    // };
+    // loadData();
+  }, [project]);
 
 // TODO: Need to make this useEffect the official one down the road. 
   // Fetch project data
@@ -39,14 +42,15 @@ export default function AdminProjectCard({ projectId, projectImg }) {
     e.preventDefault();
     // Save to Supabase
     // Refresh data
-    console.log(editedProject);
-    setProject(editedProject);
+    console.log("Project updated to be: ", editedProject);
+    router.push('/admin/projects');
     setIsEditing(false);
   };
 
   const handleDelete = async () => {
     // Delete from Supabase
     // Redirect to projects list
+    router.push('/admin/projects');
   };
 
   const handleChange = (e) => {
@@ -93,16 +97,14 @@ const handleCancel = () => {
           <section className='mx-auto transform transition-all hover:scale-105 md:mx-0'>
           <h2 className='text-center pt-8 text-lg font-semibold uppercase text-primary-green group-hover:text-black group-hover:drop-shadow-xl lg:text-xl'>
                   {project.repoName}
-                </h2>
-                <a href={project.html_url} type='button' className='btn btn-link'>
+                </h2>                
                   <Image
                     className='w-full shadow'
-                    src={projectImg}
+                    src={project.image}
                     alt={`${project.repoName} screenshot`}
                     width={500}
                     height={500}
-                    />
-                </a>
+                    />                
                               </section>
           </div>
       

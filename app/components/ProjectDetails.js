@@ -10,15 +10,15 @@ const ProjectDetails = ({ projectName, projectImg }) => {
   useEffect(() => {
     const loadData = async () => {
       try {
-        const { data } = await getProject(projectName);
+        const data = await getProject(projectName);
+        console.log("ProjectDetails", data);
         setProject(data || {});
       } catch (err) {
-        setError('Failed to load data');
+        setError('Failed to load data', err);
       }
     };
     loadData();
   }, [projectName]);
-
 
 
   return (

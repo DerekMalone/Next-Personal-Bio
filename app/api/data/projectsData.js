@@ -37,9 +37,12 @@ const getAllProjects = () => {
 };
 
 const getProject = async (repoName) => {
-  fetch(`${gitHubUrl}/repos/DerekMalone/${repoName}`)
-    .then((response) => response.json)
-    .then((res) => res);
+  const response = await fetch(`${gitHubUrl}/repos/DerekMalone/${repoName}`)
+    if (!response.ok) {
+      throw new Error('Failed to fetch project data');
+    }
+    const data = await response.json();
+    return data;
 };
 
 export { getAllProjects, getProject };

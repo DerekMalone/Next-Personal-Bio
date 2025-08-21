@@ -6,6 +6,7 @@ import { getAllProjects } from "../../../api/data/projectsData";
 import ProjectDetails from '../../ProjectDetails';
 // import Link from 'next/link';
 import AdminProjectCard from './AdminProjectCard';
+import RedirectButton from '../../navigation/navbar/Button';
 
 export default function AdminProjectList() {
     // const router = useRouter();
@@ -15,7 +16,7 @@ export default function AdminProjectList() {
     // Temporary Call for test data
 
     useEffect(() => {
-        const projects= getAllProjects();
+        const projects= getAllProjects();        
         setProjects(projects);
         // setProjects(getAllProjects());
     }, []);
@@ -37,6 +38,8 @@ export default function AdminProjectList() {
     return (
         // <div>
         <section className='mx-20 py-16 md:py-20'>
+            {/* <button type="button" onClick={() => router.push('/admin')}>Back to Admin Dashboard</button> */}
+            <RedirectButton href="/admin" component="Admin Dashboard" />
             <h2 className='text-center font-header text-4xl font-semibold uppercase text-primary-slate sm:text-5xl lg:text-6xl'>
                 Projects
             </h2>
@@ -53,8 +56,7 @@ export default function AdminProjectList() {
                         // />
                         <AdminProjectCard
                             key={project.repoName}
-                            projectId={project.repoName}
-                            projectImg={project.image}
+                            project={project}
                         />                    
                     // <li key={project.id}>
                     //     <AdminProjectCard

@@ -5,7 +5,7 @@ import { useAuth } from '../../contexts/AuthContext';
 import Link from 'next/link';
 
 export default function AdminDashboard({ onLogout }) {
-  const { logout, currentUser } = useAuth();
+  const { userProfile, logout } = useAuth();
   const [activeTab, setActiveTab] = useState('overview');
 
   const tabs = [
@@ -185,7 +185,8 @@ export default function AdminDashboard({ onLogout }) {
           <div className="flex justify-between items-center py-6">
             <div>
               <h1 className="text-2xl font-bold text-gray-900">Admin Dashboard</h1>
-              <p className="text-sm text-gray-600">Welcome back, Derek!</p>
+              <p className="text-sm text-gray-600">Welcome back, {userProfile?.name}!</p> 
+              {/* Will update above to have dynamic name based on userProfile */}
             </div>
             <button
               onClick={async () => {

@@ -11,8 +11,22 @@ export const useAuth = () => {
 
 export const AuthProvider = ({ children }) => {
   const [currentUser, setCurrentUser] = useState(null);
+  const [userProfile, setUserProfile] = useState(null);
   const [session, setSession] = useState(null);
   const [loading, setLoading] = useState(true);
+
+
+  // Fetch user profile
+  const fetchUserProfile = async (userId) => {
+    try {
+      const {data, error } = await supabase.from('user').select('name').eq('id', userId).single();
+      if (error) throw error
+      return data;
+    } catch (error) {
+      console.error('Error fetching user profile:', error);
+      return null;
+    }
+  }
 
   // Sign in function
   const login = async (email, password) => {
@@ -25,6 +39,9 @@ export const AuthProvider = ({ children }) => {
       if (error) {
         return { success: false, error: error.message };
       }
+
+      const profile = await fetchUserProfile(data.user.id)
+      setUserProfile(profile);
       
       return { success: true, user: data.user };
     } catch (error) {
@@ -54,22 +71,34 @@ export const AuthProvider = ({ children }) => {
     return currentUser !== null;
   };
 
+
   useEffect(() => {
     // Get initial session
     const getInitialSession = async () => {
       const { data: { session } } = await supabase.auth.getSession();
       setSession(session);
-      setCurrentUser(session?.user ?? null);
+      const user = session?.user ?? null;
+      setCurrentUser(user);
+
+      if (user) {
+        const profile = await fetchUserProfile(user.id);
+        setUserProfile(profile);
+      }
       setLoading(false);
     };
 
     getInitialSession();
 
-    // Listen for auth changes
+    // Listen for auth changes  
     const { data: { subscription } } = supabase.auth.onAuthStateChange(
-      (event, session) => {
+      async (event, session) => {
         setSession(session);
-        setCurrentUser(session?.user ?? null);
+        const user = session?.user ?? null;
+        setCurrentUser(user);
+        if (user) {
+          const profile = await fetchUserProfile(user.id);
+          setUserProfile(profile);
+        }
         setLoading(false);
       }
     );
@@ -79,11 +108,13 @@ export const AuthProvider = ({ children }) => {
 
   const value = {
     currentUser,
+    userProfile,
     session,
     login,
     logout,
     isAdmin,
-    loading
+    loading,
+    
   };
 
   return (
