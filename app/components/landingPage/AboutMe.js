@@ -26,7 +26,7 @@ const AboutMe = () => {
         <h5 className='pt-6 font-header text-xl font-medium text-black  sm:text-2xl lg:text-3xl lg:ml-5 m-2'>
           {`I'm Derek Malone, a Software Developer!`}
         </h5>
-        <p className='pt-6 font-body leading-relaxed text-grey-20 lg:ml-5 m-5'>
+        <p className='pt-6 font-body leading-relaxed text-grey-20 lg:ml-5 m-5 whitespace-pre-wrap'>
           {aboutMe.bio}
         </p>        
       </section>
