@@ -87,8 +87,6 @@ export default function AdminDashboard({ onLogout }) {
                     <p className="text-xs text-gray-500">Review and respond to inquiries</p>
                   </div>
                 </button>
-                {/* need to figure out how to correctly route to admin about me form... */}
-                {/* <button className="p-4 border-2 border-dashed border-gray-300 rounded-lg hover:border-indigo-500 transition-colors"> */}
                 <Link href="/admin/aboutMe" className="p-4 border-2 border-dashed border-gray-300 rounded-lg hover:border-indigo-500 transition-colors">
                   <div className="text-center">
                     <span className="text-2xl">👤</span>
@@ -96,7 +94,6 @@ export default function AdminDashboard({ onLogout }) {
                     <p className="text-xs text-gray-500">Update bio and personal details</p>
                   </div>
                 </Link>
-                {/* </button> */}
               </div>
             </div>
           </div>
