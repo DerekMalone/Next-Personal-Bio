@@ -89,7 +89,7 @@ export default function ContactMeForm({ onSuccess }) {
           name='contactName'
           value={formData.contactName}
           onChange={handleChange}
-          className='mr-3 w-full rounded border-secondary-slate px-4 py-3 font-body text-black md:w-1/2 lg:mr-5'
+          className='mr-3 w-full rounded border border-brand-forest/30 px-4 py-3 font-body text-brand-dark md:w-1/2 lg:mr-5'
           placeholder='Name'
           type='text'
           required
@@ -99,7 +99,7 @@ export default function ContactMeForm({ onSuccess }) {
           name='email'
           value={formData.email}
           onChange={handleChange}
-          className='mt-6 w-full rounded border-secondary-slate px-4 py-3 font-body text-black md:mt-0 md:ml-3 md:w-1/2 lg:ml-5'
+          className='mt-6 w-full rounded border border-brand-forest/30 px-4 py-3 font-body text-brand-dark md:mt-0 md:ml-3 md:w-1/2 lg:ml-5'
           placeholder='Email'
           type='email'
           required
@@ -110,7 +110,7 @@ export default function ContactMeForm({ onSuccess }) {
         name='message'
         value={formData.message}
         onChange={handleChange}
-        className='mt-6 w-full rounded border-secondary-slate px-4 py-3 font-body text-black md:mt-8'
+        className='mt-6 w-full rounded border border-brand-forest/30 px-4 py-3 font-body text-brand-dark md:mt-8'
         placeholder='Message'
         cols='30'
         rows='10'
@@ -120,7 +120,7 @@ export default function ContactMeForm({ onSuccess }) {
       <button
         type='submit'
         disabled={isSubmitting}
-        className='mt-6 flex items-center justify-center rounded bg-primary-green px-8 py-3 text-lg font-bold uppercase text-zinc-font hover:bg-primary-slate disabled:opacity-50'
+        className='mt-6 flex items-center justify-center rounded bg-brand-forest px-8 py-3 text-lg font-bold uppercase text-brand-light hover:bg-brand-teal transition-colors disabled:opacity-50'
         >
         {isSubmitting ? "Sending..." : "Send"}
       </button>

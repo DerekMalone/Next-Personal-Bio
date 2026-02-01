@@ -1,12 +1,27 @@
+"use client";
+
 import React, { useState } from "react";
 import Link from "next/link";
 import Button from "./Button";
 import Image from "next/image";
+import { useTheme } from "next-themes";
+import { Icon } from "@iconify/react";
 
 export default function NavBar() {
   const [menuStatus, setMenuStatus] = useState(false);
+  const { theme, setTheme } = useTheme();
+  const [mounted, setMounted] = useState(false);
+
+  React.useEffect(() => {
+    setMounted(true);
+  }, []);
+
   const toggleMenu = () => {
     setMenuStatus(!menuStatus);
+  };
+
+  const toggleTheme = () => {
+    setTheme(theme === "dark" ? "light" : "dark");
   };
 
 
@@ -17,8 +32,15 @@ export default function NavBar() {
           <Image
             width='64'
             height='64'
-            src='/images/personal-logos/transparent-DM-logo.png'
-            className='h-16 dmLogo dark:filter dark:invert dark:grayscale-100'
+            src='/images/personal-logos/personal_logo_light_mode.svg'
+            className='h-16 w-auto dark:hidden'
+            alt='Logo'
+          />
+          <Image
+            width='64'
+            height='64'
+            src='/images/personal-logos/personal_logo_dark_mode.svg'
+            className='h-16 w-auto hidden dark:block'
             alt='Logo'
           />
         </a>
@@ -101,7 +123,20 @@ export default function NavBar() {
               <p>Blog</p>
             </Link>
           </li> */}
-          {/* <Button /> */}
+          <li className="py-2">
+            {mounted && (
+              <button
+                onClick={toggleTheme}
+                className="p-2 rounded-lg hover:bg-gray-200 dark:hover:bg-gray-700 transition-colors cursor-pointer"
+                aria-label="Toggle theme"
+              >
+                <Icon
+                  icon={theme === "dark" ? "lucide:sun" : "lucide:moon"}
+                  className="h-5 w-5"
+                />
+              </button>
+            )}
+          </li>
         </ul>
         {/* </div>
           </div>

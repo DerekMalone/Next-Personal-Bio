@@ -23,7 +23,7 @@ const ProjectDetails = ({ projectName, projectImg }) => {
 
   return (
     <section className='mx-auto transform transition-all hover:scale-105 md:mx-0'>
-      <h2 className='text-center pt-8 text-lg font-semibold uppercase text-primary-green group-hover:text-black group-hover:drop-shadow-xl lg:text-xl'>
+      <h2 className='text-center pt-8 text-lg font-semibold uppercase text-brand-forest dark:text-brand-teal group-hover:text-brand-teal dark:group-hover:text-brand-light group-hover:drop-shadow-xl lg:text-xl'>
         {project.name}
       </h2>
       <a href={project.html_url} type='button' className='btn btn-link'>
