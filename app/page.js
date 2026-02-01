@@ -1,5 +1,5 @@
 import React from "react";
-import Profile from "./components/landingPage/Profile";
+import Profile from "@/components/landingPage/Profile";
 
 
 export default function Home() {

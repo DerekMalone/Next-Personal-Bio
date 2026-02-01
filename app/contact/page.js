@@ -3,7 +3,7 @@
 import React from "react";
 import Image from "next/image";
 import { useRouter } from "next/navigation";
-import ContactMeForm from "../components/contactMe/ContactMeForm";
+import ContactMeForm from "@/components/contactMe/ContactMeForm";
 
 const Contact = () => {
   const router = useRouter();

@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
-import TechStack from "../techstack/TechStack";
-import { getAboutMe } from "../../api/data/aboutMeData";
+import TechStack from "@/components/techstack/TechStack";
+import { getAboutMe } from "@/app/api/data/aboutMeData";
 
 const AboutMe = () => {
   const [aboutMe, setAboutMe] = useState({});

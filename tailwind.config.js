@@ -14,12 +14,13 @@ module.exports = {
   theme: {
   	extend: {
   		colors: {
-  			'primary-slate': '#64748B',
-  			'primary-green': '#748B64',
-  			'secondary-slate': '#7F8EA3',
-  			'primary-burgandy': '#8B6474',
-  			'zinc-font': '#D9D9D9',
-  			'yellow-accent': '#FFFF00',
+  			/* Brand colors (see .claude/BRAND.md) */
+  			'brand-forest': '#0F3D2E',    /* Primary 60-70% */
+  			'brand-teal': '#1E6F6A',      /* Secondary 20-30% */
+  			'brand-brown': '#7A4A2E',     /* Accent 5-10% */
+  			'brand-dark': '#0A1A14',      /* Near-Black Green */
+  			'brand-light': '#E6ECE9',     /* Off-White */
+  			/* Shadcn variables */
   			background: 'hsl(var(--background))',
   			foreground: 'hsl(var(--foreground))',
   			card: {

@@ -1,8 +1,7 @@
 "use client";
 import React, { useState, useEffect } from "react";
-// import { getAllProjects } from "../api/data/projectsData";
-import { getAllProjects } from "../api/data/projectsData";
-import ProjectDetails from "../components/ProjectDetails";
+import { getAllProjects } from "@/app/api/data/projectsData";
+import ProjectDetails from "@/components/ProjectDetails";
 
 export default function Portfolio() {
   const [projects, setProjects] = useState([]);

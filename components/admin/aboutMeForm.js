@@ -2,8 +2,8 @@
 
 import { useState } from "react";
 import { useRouter } from "next/navigation";
-import { updateAboutMe, getAboutMe } from "../../api/data/aboutMeData";
-import { useAuth } from "../../../contexts/AuthContext";
+import { updateAboutMe, getAboutMe } from "@/app/api/data/aboutMeData";
+import { useAuth } from "@/contexts/AuthContext";
 import { useEffect } from "react";
 import { Button } from "@/components/ui/button";
 

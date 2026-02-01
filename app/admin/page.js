@@ -1,8 +1,8 @@
 'use client';
 
 import { AuthProvider, useAuth } from '../../contexts/AuthContext';
-import AdminLogin from '../components/AdminLogin';
-import AdminDashboard from '../components/AdminDashboard';
+import AdminLogin from '@/components/AdminLogin';
+import AdminDashboard from '@/components/AdminDashboard';
 
 function AdminContent() {
   const { currentUser, isAdmin, loading } = useAuth();
