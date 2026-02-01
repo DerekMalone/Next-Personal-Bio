@@ -1,6 +1,6 @@
 "use client";
 import React, { useState, useEffect } from "react";
-import getProject from "@/app/api/data/projectsData";
+import { getProject } from "@/app/api/data/projectsData";
 import Image from "next/image";
 
 const ProjectDetails = ({ projectName, projectImg }) => {
