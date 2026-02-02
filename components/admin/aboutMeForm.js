@@ -1,11 +1,14 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { useRouter } from "next/navigation";
 import { updateAboutMe, getAboutMe } from "@/app/api/data/aboutMeData";
 import { useAuth } from "@/contexts/AuthContext";
-import { useEffect } from "react";
 import { Button } from "@/components/ui/button";
+import { Textarea } from "@/components/ui/textarea";
+import { Label } from "@/components/ui/label";
+import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
+import { Separator } from "@/components/ui/separator";
 
 export const AboutMeForm = () => {
     const [aboutMe, setAboutMe] = useState({});
@@ -46,65 +49,65 @@ export const AboutMeForm = () => {
         } finally {
             setIsLoading(false);
         }
-        router.push("/admin");
     };
 
     return (
-        <div className='min-h-screen bg-gradient-to-br from-slate-50 to-slate-100 py-12 px-4'>
-            <div className='max-w-4xl mx-auto'>
-                <div className='bg-white rounded-xl shadow-lg border-t-4 border-primary-burgandy p-10'>
-                    <div className='mb-8'>
-                        <h2 className='text-4xl font-header font-bold text-primary-green drop-shadow-sm'>
+        <div className="min-h-screen bg-brand-light dark:bg-brand-dark py-12 px-4">
+            <div className="max-w-4xl mx-auto">
+                <Card className="border-t-4 border-brand-teal">
+                    <CardHeader>
+                        <CardTitle className="text-3xl text-brand-forest dark:text-brand-teal">
                             About Me
-                        </h2>
-                        <p className='text-lg text-gray-600 mt-2'>Edit your personal biography</p>
-                    </div>
+                        </CardTitle>
+                        <CardDescription>Edit your personal biography</CardDescription>
+                    </CardHeader>
+                    <CardContent>
+                        <form onSubmit={handleSubmit} className="space-y-6">
+                            {error && (
+                                <div className="text-red-600 dark:text-red-400 text-sm">
+                                    {error}
+                                </div>
+                            )}
 
-                    <form onSubmit={handleSubmit} className='space-y-8'>
-                        <div className='space-y-3'>
-                                      <label
-              htmlFor={aboutMe.id}      
-              className='sr-only'       
-          >
-              Biography text area       
-          </label>
-                            <textarea
-                                id={aboutMe.id}
-                                value={aboutMe.bio || ''}
-                                rows={12}
-                                name="bio"
-                                onChange={handleChange}
-                                placeholder="Share your journey..."
-                                className='w-full px-5 py-4 border-2 border-primary-slate/30 rounded-xl focus:ring-4 focus:ring-primary-green/20 focus:border-primary-green resize-y font-body text-base leading-relaxed transition-all'
-                            />
-                            <div className='flex justify-end'>
-                                <p className='text-sm text-gray-400'>
+                            <div className="space-y-2">
+                                <Label htmlFor="bio">Biography</Label>
+                                <Textarea
+                                    id="bio"
+                                    name="bio"
+                                    value={aboutMe.bio || ""}
+                                    rows={12}
+                                    onChange={handleChange}
+                                    placeholder="Share your journey..."
+                                    className="resize-y"
+                                />
+                                <p className="text-sm text-muted-foreground text-right">
                                     {aboutMe.bio?.length || 0} characters
                                 </p>
                             </div>
-                        </div>
 
-                        <div className='flex gap-4 pt-4 border-t border-gray-200'>
-                            <Button
-                                type="submit"
-                                size="lg"
-                                disabled={isLoading}
-                                className='flex-1 bg-primary-green hover:bg-primary-slate text-white font-semibold text-lg h-12'
-                            >
-                                {isLoading ? 'Saving...' : 'Save Changes'}
-                            </Button>
-                            <Button
-                                type="button"
-                                variant="outline"
-                                size="lg"
-                                onClick={() => router.push("/admin")}
-                                className='px-8 h-12 font-semibold'
-                            >
-                                Cancel
-                            </Button>
-                        </div>
-                    </form>
-                </div>
+                            <Separator />
+
+                            <div className="flex gap-4">
+                                <Button
+                                    type="submit"
+                                    size="lg"
+                                    disabled={isLoading}
+                                    className="flex-1 bg-brand-forest hover:bg-brand-teal text-brand-light"
+                                >
+                                    {isLoading ? "Saving..." : "Save Changes"}
+                                </Button>
+                                <Button
+                                    type="button"
+                                    variant="outline"
+                                    size="lg"
+                                    onClick={() => router.push("/admin")}
+                                >
+                                    Cancel
+                                </Button>
+                            </div>
+                        </form>
+                    </CardContent>
+                </Card>
             </div>
         </div>
     );

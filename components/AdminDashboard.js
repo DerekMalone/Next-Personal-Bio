@@ -1,222 +1,239 @@
 'use client';
 
-import { useState } from 'react';
 import { useAuth } from '@/contexts/AuthContext';
 import Link from 'next/link';
+import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
+import { Button } from '@/components/ui/button';
+import { Input } from '@/components/ui/input';
+import { Textarea } from '@/components/ui/textarea';
+import { Label } from '@/components/ui/label';
+import { Separator } from '@/components/ui/separator';
+import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
 
 export default function AdminDashboard({ onLogout }) {
-  const { logout, currentUser } = useAuth();
-  const [activeTab, setActiveTab] = useState('overview');
-
-  const tabs = [
-    { id: 'overview', name: 'Overview', icon: '📊' },
-    { id: 'content', name: 'Content Management', icon: '📝' },
-    { id: 'analytics', name: 'Analytics', icon: '📈' },
-    { id: 'settings', name: 'Settings', icon: '⚙️' }
-  ];
-
-
-  const renderTabContent = () => {
-    switch (activeTab) {
-      case 'overview':
-        return (
-          <div className="space-y-6">
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-              <div className="bg-white p-6 rounded-lg shadow">
-                <h3 className="text-lg font-semibold text-gray-900">Site Visits</h3>
-                <p className="text-3xl font-bold text-indigo-600 mt-2">1,234</p>
-                <p className="text-sm text-gray-500">This month</p>
-              </div>
-              <div className="bg-white p-6 rounded-lg shadow">
-                <h3 className="text-lg font-semibold text-gray-900">Contact Forms</h3>
-                <p className="text-3xl font-bold text-green-600 mt-2">56</p>
-                <p className="text-sm text-gray-500">Pending responses</p>
-              </div>
-              <div className="bg-white p-6 rounded-lg shadow">
-                <h3 className="text-lg font-semibold text-gray-900">Projects</h3>
-                <p className="text-3xl font-bold text-purple-600 mt-2">12</p>
-                <p className="text-sm text-gray-500">Published</p>
-              </div>
-            </div>
-            <div className="bg-white p-6 rounded-lg shadow">
-              <h3 className="text-lg font-semibold text-gray-900 mb-4">Recent Activity</h3>
-              <div className="space-y-3">
-                <div className="flex items-center space-x-3">
-                  <div className="w-2 h-2 bg-green-500 rounded-full"></div>
-                  <span className="text-sm text-gray-600">New contact form submission</span>
-                  <span className="text-xs text-gray-400">2 hours ago</span>
-                </div>
-                <div className="flex items-center space-x-3">
-                  <div className="w-2 h-2 bg-blue-500 rounded-full"></div>
-                  <span className="text-sm text-gray-600">Portfolio project updated</span>
-                  <span className="text-xs text-gray-400">1 day ago</span>
-                </div>
-                <div className="flex items-center space-x-3">
-                  <div className="w-2 h-2 bg-purple-500 rounded-full"></div>
-                  <span className="text-sm text-gray-600">Blog post published</span>
-                  <span className="text-xs text-gray-400">3 days ago</span>
-                </div>
-              </div>
-            </div>
-          </div>
-        );
-      case 'content':
-        return (
-          <div className="space-y-6">
-            <div className="bg-white p-6 rounded-lg shadow">
-              <h3 className="text-lg font-semibold text-gray-900 mb-4">Content Management</h3>
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-                <button className="p-4 border-2 border-dashed border-gray-300 rounded-lg hover:border-indigo-500 transition-colors">
-                  <div className="text-center">
-                    <span className="text-2xl">📝</span>
-                    <p className="mt-2 text-sm font-medium text-gray-900">Manage Blog Posts</p>
-                    <p className="text-xs text-gray-500">Create, edit, and publish blog content</p>
-                  </div>
-                </button>
-                <button className="p-4 border-2 border-dashed border-gray-300 rounded-lg hover:border-indigo-500 transition-colors">
-                  <div className="text-center">
-                    <span className="text-2xl">🎨</span>
-                    <p className="mt-2 text-sm font-medium text-gray-900">Portfolio Projects</p>
-                    <p className="text-xs text-gray-500">Update project showcase</p>
-                  </div>
-                </button>
-                <button className="p-4 border-2 border-dashed border-gray-300 rounded-lg hover:border-indigo-500 transition-colors">
-                  <div className="text-center">
-                    <span className="text-2xl">📧</span>
-                    <p className="mt-2 text-sm font-medium text-gray-900">Contact Messages</p>
-                    <p className="text-xs text-gray-500">Review and respond to inquiries</p>
-                  </div>
-                </button>
-                <Link href="/admin/aboutMe" className="p-4 border-2 border-dashed border-gray-300 rounded-lg hover:border-indigo-500 transition-colors">
-                  <div className="text-center">
-                    <span className="text-2xl">👤</span>
-                    <p className="mt-2 text-sm font-medium text-gray-900">Profile Information</p>
-                    <p className="text-xs text-gray-500">Update bio and personal details</p>
-                  </div>
-                </Link>
-              </div>
-            </div>
-          </div>
-        );
-      case 'analytics':
-        return (
-          <div className="space-y-6">
-            <div className="bg-white p-6 rounded-lg shadow">
-              <h3 className="text-lg font-semibold text-gray-900 mb-4">Site Analytics</h3>
-              <div className="space-y-4">
-                <div className="flex justify-between items-center">
-                  <span className="text-sm text-gray-600">Page Views</span>
-                  <span className="text-sm font-medium">2,456 this month</span>
-                </div>
-                <div className="flex justify-between items-center">
-                  <span className="text-sm text-gray-600">Unique Visitors</span>
-                  <span className="text-sm font-medium">1,234 this month</span>
-                </div>
-                <div className="flex justify-between items-center">
-                  <span className="text-sm text-gray-600">Bounce Rate</span>
-                  <span className="text-sm font-medium">32%</span>
-                </div>
-                <div className="flex justify-between items-center">
-                  <span className="text-sm text-gray-600">Average Session Duration</span>
-                  <span className="text-sm font-medium">2m 34s</span>
-                </div>
-              </div>
-            </div>
-          </div>
-        );
-      case 'settings':
-        return (
-          <div className="space-y-6">
-            <div className="bg-white p-6 rounded-lg shadow">
-              <h3 className="text-lg font-semibold text-gray-900 mb-4">Admin Settings</h3>
-              <div className="space-y-4">
-                <div>
-                  <label className="block text-sm font-medium text-gray-700">Site Title</label>
-                  <input
-                    type="text"
-                    className="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500"
-                    defaultValue="Derek Malone: Personal Bio Site"
-                  />
-                </div>
-                <div>
-                  <label className="block text-sm font-medium text-gray-700">Meta Description</label>
-                  <textarea
-                    rows={3}
-                    className="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500"
-                    defaultValue="Derek Malone's Personal Bio Site"
-                  />
-                </div>
-                <div className="flex items-center">
-                  <input
-                    type="checkbox"
-                    className="h-4 w-4 text-indigo-600 focus:ring-indigo-500 border-gray-300 rounded"
-                  />
-                  <label className="ml-2 block text-sm text-gray-900">
-                    Enable contact form notifications
-                  </label>
-                </div>
-                <button className="bg-indigo-600 text-white px-4 py-2 rounded-md hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-indigo-500">
-                  Save Settings
-                </button>
-              </div>
-            </div>
-          </div>
-        );
-      default:
-        return null;
-    }
-  };
+  const { logout } = useAuth();
 
   return (
-    <div className="min-h-screen bg-gray-50">
+    <div className="min-h-screen bg-brand-light dark:bg-brand-dark">
       {/* Header */}
-      <div className="bg-white shadow">
+      <div className="bg-white dark:bg-brand-dark border-b border-brand-forest/20 dark:border-brand-teal/20">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex justify-between items-center py-6">
             <div>
-              <h1 className="text-2xl font-bold text-gray-900">Admin Dashboard</h1>
-              <p className="text-sm text-gray-600">Welcome back, Derek!</p>
+              <h1 className="text-2xl font-bold text-brand-forest dark:text-brand-teal">
+                Admin Dashboard
+              </h1>
+              <p className="text-sm text-brand-forest/70 dark:text-brand-light/70">
+                Welcome back, Derek!
+              </p>
             </div>
-            <button
+            <Button
+              variant="destructive"
               onClick={async () => {
                 const result = await logout();
                 if (result.success) {
                   onLogout();
                 }
               }}
-              className="bg-red-600 text-white px-4 py-2 rounded-md hover:bg-red-700 focus:outline-none focus:ring-2 focus:ring-red-500"
             >
               Logout
-            </button>
+            </Button>
           </div>
         </div>
       </div>
 
-      {/* Navigation Tabs */}
-      <div className="bg-white border-b">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <nav className="flex space-x-8">
-            {tabs.map((tab) => (
-              <button
-                key={tab.id}
-                onClick={() => setActiveTab(tab.id)}
-                className={`py-4 px-1 border-b-2 font-medium text-sm ${
-                  activeTab === tab.id
-                    ? 'border-indigo-500 text-indigo-600'
-                    : 'border-transparent text-gray-500 hover:text-gray-700 hover:border-gray-300'
-                }`}
-              >
-                <span className="mr-2">{tab.icon}</span>
-                {tab.name}
-              </button>
-            ))}
-          </nav>
-        </div>
-      </div>
-
-      {/* Main Content */}
+      {/* Main Content with Tabs */}
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
-        {renderTabContent()}
+        <Tabs defaultValue="overview" className="space-y-6">
+          <TabsList className="grid w-full grid-cols-4">
+            <TabsTrigger value="overview">Overview</TabsTrigger>
+            <TabsTrigger value="content">Content</TabsTrigger>
+            <TabsTrigger value="analytics">Analytics</TabsTrigger>
+            <TabsTrigger value="settings">Settings</TabsTrigger>
+          </TabsList>
+
+          {/* Overview Tab */}
+          <TabsContent value="overview" className="space-y-6">
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+              <Card>
+                <CardHeader className="pb-2">
+                  <CardDescription>Site Visits</CardDescription>
+                  <CardTitle className="text-3xl text-brand-teal">1,234</CardTitle>
+                </CardHeader>
+                <CardContent>
+                  <p className="text-sm text-muted-foreground">This month</p>
+                </CardContent>
+              </Card>
+              <Card>
+                <CardHeader className="pb-2">
+                  <CardDescription>Contact Forms</CardDescription>
+                  <CardTitle className="text-3xl text-brand-forest dark:text-brand-teal">56</CardTitle>
+                </CardHeader>
+                <CardContent>
+                  <p className="text-sm text-muted-foreground">Pending responses</p>
+                </CardContent>
+              </Card>
+              <Card>
+                <CardHeader className="pb-2">
+                  <CardDescription>Projects</CardDescription>
+                  <CardTitle className="text-3xl text-brand-brown">12</CardTitle>
+                </CardHeader>
+                <CardContent>
+                  <p className="text-sm text-muted-foreground">Published</p>
+                </CardContent>
+              </Card>
+            </div>
+
+            <Card>
+              <CardHeader>
+                <CardTitle>Recent Activity</CardTitle>
+              </CardHeader>
+              <CardContent className="space-y-3">
+                <div className="flex items-center space-x-3">
+                  <div className="w-2 h-2 bg-brand-teal rounded-full"></div>
+                  <span className="text-sm text-foreground">New contact form submission</span>
+                  <span className="text-xs text-muted-foreground">2 hours ago</span>
+                </div>
+                <Separator />
+                <div className="flex items-center space-x-3">
+                  <div className="w-2 h-2 bg-brand-forest rounded-full"></div>
+                  <span className="text-sm text-foreground">Portfolio project updated</span>
+                  <span className="text-xs text-muted-foreground">1 day ago</span>
+                </div>
+                <Separator />
+                <div className="flex items-center space-x-3">
+                  <div className="w-2 h-2 bg-brand-brown rounded-full"></div>
+                  <span className="text-sm text-foreground">Blog post published</span>
+                  <span className="text-xs text-muted-foreground">3 days ago</span>
+                </div>
+              </CardContent>
+            </Card>
+          </TabsContent>
+
+          {/* Content Tab */}
+          <TabsContent value="content">
+            <Card>
+              <CardHeader>
+                <CardTitle>Content Management</CardTitle>
+                <CardDescription>Manage your site content</CardDescription>
+              </CardHeader>
+              <CardContent>
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                  <Button
+                    variant="outline"
+                    className="h-auto p-4 border-2 border-dashed hover:border-brand-teal"
+                  >
+                    <div className="text-center w-full">
+                      <p className="text-sm font-medium">Manage Blog Posts</p>
+                      <p className="text-xs text-muted-foreground">Create, edit, and publish</p>
+                    </div>
+                  </Button>
+                  <Button
+                    variant="outline"
+                    className="h-auto p-4 border-2 border-dashed hover:border-brand-teal"
+                  >
+                    <div className="text-center w-full">
+                      <p className="text-sm font-medium">Portfolio Projects</p>
+                      <p className="text-xs text-muted-foreground">Update project showcase</p>
+                    </div>
+                  </Button>
+                  <Button
+                    variant="outline"
+                    className="h-auto p-4 border-2 border-dashed hover:border-brand-teal"
+                  >
+                    <div className="text-center w-full">
+                      <p className="text-sm font-medium">Contact Messages</p>
+                      <p className="text-xs text-muted-foreground">Review and respond</p>
+                    </div>
+                  </Button>
+                  <Button
+                    variant="outline"
+                    className="h-auto p-4 border-2 border-dashed hover:border-brand-teal"
+                    asChild
+                  >
+                    <Link href="/admin/aboutMe">
+                      <div className="text-center w-full">
+                        <p className="text-sm font-medium">Profile Information</p>
+                        <p className="text-xs text-muted-foreground">Update bio and details</p>
+                      </div>
+                    </Link>
+                  </Button>
+                </div>
+              </CardContent>
+            </Card>
+          </TabsContent>
+
+          {/* Analytics Tab */}
+          <TabsContent value="analytics">
+            <Card>
+              <CardHeader>
+                <CardTitle>Site Analytics</CardTitle>
+                <CardDescription>View your site performance</CardDescription>
+              </CardHeader>
+              <CardContent className="space-y-4">
+                <div className="flex justify-between items-center">
+                  <span className="text-sm text-muted-foreground">Page Views</span>
+                  <span className="text-sm font-medium">2,456 this month</span>
+                </div>
+                <Separator />
+                <div className="flex justify-between items-center">
+                  <span className="text-sm text-muted-foreground">Unique Visitors</span>
+                  <span className="text-sm font-medium">1,234 this month</span>
+                </div>
+                <Separator />
+                <div className="flex justify-between items-center">
+                  <span className="text-sm text-muted-foreground">Bounce Rate</span>
+                  <span className="text-sm font-medium">32%</span>
+                </div>
+                <Separator />
+                <div className="flex justify-between items-center">
+                  <span className="text-sm text-muted-foreground">Avg Session Duration</span>
+                  <span className="text-sm font-medium">2m 34s</span>
+                </div>
+              </CardContent>
+            </Card>
+          </TabsContent>
+
+          {/* Settings Tab */}
+          <TabsContent value="settings">
+            <Card>
+              <CardHeader>
+                <CardTitle>Admin Settings</CardTitle>
+                <CardDescription>Configure your site settings</CardDescription>
+              </CardHeader>
+              <CardContent className="space-y-4">
+                <div className="space-y-2">
+                  <Label htmlFor="siteTitle">Site Title</Label>
+                  <Input
+                    id="siteTitle"
+                    defaultValue="Derek Malone: Personal Bio Site"
+                  />
+                </div>
+                <div className="space-y-2">
+                  <Label htmlFor="metaDescription">Meta Description</Label>
+                  <Textarea
+                    id="metaDescription"
+                    rows={3}
+                    defaultValue="Derek Malone's Personal Bio Site"
+                  />
+                </div>
+                <div className="flex items-center space-x-2">
+                  <input
+                    type="checkbox"
+                    id="notifications"
+                    className="h-4 w-4 rounded border-brand-forest/30"
+                  />
+                  <Label htmlFor="notifications" className="font-normal">
+                    Enable contact form notifications
+                  </Label>
+                </div>
+                <Button className="bg-brand-forest hover:bg-brand-teal text-brand-light">
+                  Save Settings
+                </Button>
+              </CardContent>
+            </Card>
+          </TabsContent>
+        </Tabs>
       </div>
     </div>
   );
