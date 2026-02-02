@@ -3,7 +3,7 @@
 import React from "react";
 import Image from "next/image";
 import { useRouter } from "next/navigation";
-import ContactMeForm from "../components/contactMe/ContactMeForm";
+import ContactMeForm from "@/components/contactMe/ContactMeForm";
 
 const Contact = () => {
   const router = useRouter();
@@ -29,7 +29,7 @@ const Contact = () => {
       <ContactMeForm onSuccess={onFormSuccess} />
 
       <div className='flex flex-col justify-center pt-16 lg:flex-row'>
-        <div className='w-full border-l-2 border-t-2 border-r-2 border-b-2 border-secondary-slate px-6 py-6 sm:py-8 lg:w-1/2'>
+        <div className='w-full border-2 border-brand-forest/30 px-6 py-6 sm:py-8 lg:w-1/2'>
           <div className='flex flex-col justify-center items-center'>
             <Image
               className="dark:filter dark:invert"
@@ -38,10 +38,10 @@ const Contact = () => {
               src='/images/general-logos/phoneLogo.png'
               alt='phone logo'
             />
-            <p className='pt-2 text-left font-body font-bold text-primary-burgandy lg:text-lg'>{`(931) 284-8494`}</p>
+            <p className='pt-2 text-left font-body font-bold text-brand-brown lg:text-lg'>{`(931) 284-8494`}</p>
           </div>
         </div>
-        <div className='w-full border-l-2 border-t-0 border-r-2 border-b-2 border-secondary-slate px-6 py-6 sm:py-8 lg:w-1/2 lg:border-l-0 lg:border-t-2'>
+        <div className='w-full border-2 border-t-0 border-brand-forest/30 px-6 py-6 sm:py-8 lg:w-1/2 lg:border-l-0 lg:border-t-2'>
           <div className='flex flex-col justify-center place-items-center'>
             <Image
               className="dark:filter dark:invert"
@@ -50,7 +50,7 @@ const Contact = () => {
               src='/images/general-logos/emailLogo.png'
               alt='email logo'
             />
-            <p className='pt-2 text-left text-xs font-body font-bold text-primary-burgandy sm:text-lg'>{`derek.s.malone@gmail.com`}</p>
+            <p className='pt-2 text-left text-xs font-body font-bold text-brand-brown sm:text-lg'>{`derek.s.malone@gmail.com`}</p>
           </div>
         </div>
       </div>

@@ -1,8 +1,8 @@
 'use client';
 
 import { AuthProvider, useAuth } from '../../contexts/AuthContext';
-import AdminLogin from '../components/AdminLogin';
-import AdminDashboard from '../components/AdminDashboard';
+import AdminLogin from '@/components/AdminLogin';
+import AdminDashboard from '@/components/AdminDashboard';
 
 function AdminContent() {
   const { currentUser, isAdmin, loading } = useAuth();
@@ -19,14 +19,14 @@ function AdminContent() {
 
   if (loading) {
     return (
-      <div className="min-h-screen flex items-center justify-center">
-        <div className="text-lg">Loading...</div>
+      <div className="min-h-screen flex items-center justify-center bg-brand-light dark:bg-brand-dark">
+        <div className="text-lg text-brand-forest dark:text-brand-teal">Loading...</div>
       </div>
     );
   }
 
   return (
-    <div className="min-h-screen bg-gray-50">
+    <div className="min-h-screen bg-brand-light dark:bg-brand-dark">
       {!isAdmin() ? (
         <AdminLogin onLogin={handleLogin} />
       ) : (

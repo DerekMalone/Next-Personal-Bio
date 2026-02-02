@@ -1,5 +1,6 @@
-import Footer from "./components/footer";
-import Navigation from "./components/navigation";
+import Footer from "@/components/footer";
+import Navigation from "@/components/navigation";
+import { ThemeProvider } from "@/components/ThemeProvider";
 import "./globals.css";
 import { Inter } from "next/font/google";
 const inter = Inter({ subsets: ["latin"] });
@@ -11,11 +12,13 @@ export const metadata = {
 
 export default function RootLayout({ children }) {
   return (
-    <html lang='en'>
-      <body className={inter.className}>
-        <Navigation />
-        {children}
-        <Footer />
+    <html lang='en' suppressHydrationWarning>
+      <body className={`${inter.className} pt-16`}>
+        <ThemeProvider>
+          <Navigation />
+          {children}
+          <Footer />
+        </ThemeProvider>
       </body>
     </html>
   );

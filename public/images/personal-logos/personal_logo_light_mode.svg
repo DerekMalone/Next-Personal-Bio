@@ -1,0 +1,85 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" role="img" aria-label="Personal mark light mode">
+  <defs>
+    <!-- Rounded frame clip: matches the border radius -->
+    <clipPath id="frameClip">
+      <rect x="0" y="0" width="100" height="100" rx="2.5" ry="2.5"/>
+    </clipPath>
+
+    <!-- Upper region -->
+    <clipPath id="arcClip">
+      <path d="
+        M 0 62
+        C 18 61, 32 63, 50 62.2
+        C 68 61.4, 84 63.5, 100 62
+        L 100 0
+        L 0 0
+        Z
+      "/>
+    </clipPath>
+
+    <!-- Lower region -->
+    <clipPath id="lowerClip">
+      <path d="
+        M 0 62
+        C 18 61, 32 63, 50 62.2
+        C 68 61.4, 84 63.5, 100 62
+        L 100 100
+        L 0 100
+        Z
+      "/>
+    </clipPath>
+
+    <filter id="softBlur" x="-40%" y="-40%" width="180%" height="180%">
+      <feGaussianBlur stdDeviation="2.2"/>
+    </filter>
+
+    <linearGradient id="mistFade" x1="0" y1="62" x2="0" y2="100" gradientUnits="userSpaceOnUse">
+      <stop offset="0%" stop-color="rgb(10 26 20)" stop-opacity="0.022"/>
+      <stop offset="45%" stop-color="rgb(10 26 20)" stop-opacity="0.067"/>
+      <stop offset="100%" stop-color="rgb(10 26 20)" stop-opacity="0.111"/>
+    </linearGradient>
+
+    <!-- Mask for arc + path cutout with micro interruption gap -->
+    <mask id="cutPathMask" maskUnits="userSpaceOnUse">
+      <rect x="0" y="0" width="100" height="100" fill="black"/>
+      <circle cx="50" cy="75" r="62" fill="white" clip-path="url(#arcClip)"/>
+
+      <!-- Micro interruption gap -->
+      <path d="M -5 38 C 20 36.5, 30 36.2, 36 37.0"
+        fill="none" stroke="black" stroke-width="3.2" stroke-linecap="round" stroke-linejoin="round"/>
+      <path d="M 41.5 38.6 C 52 39.5, 70 43.5, 105 44.5"
+        fill="none" stroke="black" stroke-width="3.2" stroke-linecap="round" stroke-linejoin="round"/>
+    </mask>
+  </defs>
+
+  <!-- Artwork clipped to rounded frame -->
+  <g clip-path="url(#frameClip)">
+    <!-- Background -->
+    <rect x="0" y="0" width="100" height="100" fill="rgb(230 236 233)"/>
+
+    <!-- Lower field -->
+    <g clip-path="url(#lowerClip)">
+      <rect x="0" y="62" width="100" height="38" fill="url(#mistFade)"/>
+
+      <g filter="url(#softBlur)">
+        <path d="M -10 74 C 12 70, 30 78, 52 74 C 74 70, 92 78, 110 73 L 110 102 L -10 102 Z"
+          fill="rgb(10 26 20)" opacity="0.056"/>
+        <path d="M -12 86 C 10 82, 28 90, 50 86 C 72 82, 92 92, 112 86 L 112 104 L -12 104 Z"
+          fill="rgb(10 26 20)" opacity="0.067"/>
+      </g>
+
+      <g filter="url(#softBlur)">
+        <path d="M -10 96 C 18 92, 38 99, 58 95 C 78 91, 92 98, 110 94 L 110 104 L -10 104 Z"
+          fill="rgb(10 26 20)" opacity="0.089"/>
+      </g>
+    </g>
+
+    <!-- Arc -->
+    <circle cx="50" cy="75" r="62" clip-path="url(#arcClip)" mask="url(#cutPathMask)"
+      fill="rgb(122 74 46)"/>
+  </g>
+
+  <!-- Rounded border at the edge -->
+  <rect x="0.5" y="0.5" width="99" height="99" rx="2.5" ry="2.5"
+    fill="none" stroke="rgb(198 210 206)" stroke-width="1"/>
+</svg>
