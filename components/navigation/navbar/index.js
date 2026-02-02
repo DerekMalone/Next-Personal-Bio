@@ -1,146 +1,143 @@
 "use client";
 
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import Link from "next/link";
-import Button from "./Button";
 import Image from "next/image";
 import { useTheme } from "next-themes";
 import { Icon } from "@iconify/react";
+import {
+  NavigationMenu,
+  NavigationMenuItem,
+  NavigationMenuLink,
+  NavigationMenuList,
+  navigationMenuTriggerStyle,
+} from "@/components/ui/navigation-menu";
+import {
+  Sheet,
+  SheetContent,
+  SheetHeader,
+  SheetTitle,
+  SheetTrigger,
+} from "@/components/ui/sheet";
+import { Button } from "@/components/ui/button";
+
+const navLinks = [
+  { href: "/", label: "Home" },
+  { href: "/portfolio", label: "Portfolio" },
+  { href: "/contact", label: "Contact" },
+];
 
 export default function NavBar() {
-  const [menuStatus, setMenuStatus] = useState(false);
   const { theme, setTheme } = useTheme();
   const [mounted, setMounted] = useState(false);
+  const [sheetOpen, setSheetOpen] = useState(false);
 
-  React.useEffect(() => {
+  useEffect(() => {
     setMounted(true);
   }, []);
-
-  const toggleMenu = () => {
-    setMenuStatus(!menuStatus);
-  };
 
   const toggleTheme = () => {
     setTheme(theme === "dark" ? "light" : "dark");
   };
 
-
   return (
-    <nav className='w-full  p-5 uppercase z-50 dark:bg-gradient-to-r dark:from-gray-900 dark:to-gray-600' >
-      <div className='flex justify-between items-center mx-12'>
-        <a href='/'>
+    <nav className="fixed top-0 left-0 right-0 p-3 z-50 bg-brand-light/90 dark:bg-brand-dark/90 backdrop-blur-sm shadow-sm border-b border-brand-forest/10 dark:border-brand-teal/10">
+      <div className="flex justify-between items-center max-w-7xl mx-auto px-4">
+        {/* Logo */}
+        <Link href="/" className="flex-shrink-0">
           <Image
-            width='64'
-            height='64'
-            src='/images/personal-logos/personal_logo_light_mode.svg'
-            className='h-16 w-auto dark:hidden'
-            alt='Logo'
+            width={64}
+            height={64}
+            src="/images/personal-logos/personal_logo_light_mode.svg"
+            className="h-10 w-auto dark:hidden"
+            alt="Derek Malone Logo"
           />
           <Image
-            width='64'
-            height='64'
-            src='/images/personal-logos/personal_logo_dark_mode.svg'
-            className='h-16 w-auto hidden dark:block'
-            alt='Logo'
+            width={64}
+            height={64}
+            src="/images/personal-logos/personal_logo_dark_mode.svg"
+            className="h-10 w-auto hidden dark:block"
+            alt="Derek Malone Logo"
           />
-        </a>
-        {/* Burger menu icon for small screens */}
-        <div className='lg:hidden '>
-          <button
-            onClick={toggleMenu}
-            className='text-black dark:text-gray-100 focus:outline-none cursor-pointer'
-          >
-            {menuStatus ? (
-              // Render X icon when the menu is open
-              <svg
-                className='h-6 w-6'
-                fill='none'
-                stroke='currentColor'
-                viewBox='0 0 24 24'
-                xmlns='http://www.w3.org/2000/svg'
-              >
-                <path
-                  strokeLinecap='round'
-                  strokeLinejoin='round'
-                  strokeWidth='2'
-                  d='M6 18L18 6M6 6l12 12'
-                ></path>
-              </svg>
-            ) : (
-              // Render burger icon when the menu is closed
-              <svg
-                className='h-6 w-6'
-                fill='none'
-                stroke='currentColor'
-                viewBox='0 0 24 24'
-                xmlns='http://www.w3.org/2000/svg'
-              >
-                <path
-                  strokeLinecap='round'
-                  strokeLinejoin='round'
-                  strokeWidth='2'
-                  d='M4 6h16M4 12h16m-7 6h7'
-                ></path>
-              </svg>
-            )}
-          </button>
+        </Link>
+
+        {/* Desktop Navigation */}
+        <div className="hidden lg:flex items-center gap-2">
+          <NavigationMenu>
+            <NavigationMenuList>
+              {navLinks.map((link) => (
+                <NavigationMenuItem key={link.href}>
+                  <Link href={link.href} legacyBehavior passHref>
+                    <NavigationMenuLink className={navigationMenuTriggerStyle()}>
+                      <span className="uppercase font-semibold">{link.label}</span>
+                    </NavigationMenuLink>
+                  </Link>
+                </NavigationMenuItem>
+              ))}
+            </NavigationMenuList>
+          </NavigationMenu>
+
+          {/* Theme Toggle - Desktop */}
+          {mounted && (
+            <Button
+              variant="ghost"
+              size="icon"
+              onClick={toggleTheme}
+              aria-label="Toggle theme"
+            >
+              <Icon
+                icon={theme === "dark" ? "lucide:sun" : "lucide:moon"}
+                className="h-5 w-5"
+              />
+            </Button>
+          )}
         </div>
 
-        {/* Overlay to capture clicks and close the menu */}
-        {menuStatus && (
-          <div
-            className='fixed inset-0 opacity-50 z-10'
-            onClick={toggleMenu}
-          ></div>
-        )}
+        {/* Mobile Navigation */}
+        <div className="lg:hidden flex items-center gap-2">
+          {/* Theme Toggle - Mobile */}
+          {mounted && (
+            <Button
+              variant="ghost"
+              size="icon"
+              onClick={toggleTheme}
+              aria-label="Toggle theme"
+            >
+              <Icon
+                icon={theme === "dark" ? "lucide:sun" : "lucide:moon"}
+                className="h-5 w-5"
+              />
+            </Button>
+          )}
 
-        <ul
-          className={`lg:flex lg:space-x-8 lg:items-center lg:justify-center content-end font-semibold ${
-            menuStatus
-              ? "flex flex-col items-start justify-between gap-2 opacity-75 fixed z-40 border-l-2 border-b-2 border-gray-600  dark:border-l-2 dark:border-b-2 dark:border-gray-100 dark:text-white right-0 top-[6.5rem] w-21/5 h-auto rounded-bl-2xl rounded-br-none shadow-xl p-8 bg-gradient-to-t from-gray-200 to-gray-50 dark:bg-gradient-to-tr dark:from-gray-900 dark:to-slate-600"
-              : "hidden"
-          }`}
-        >
-          {" "}
-          {/* className='hidden md:flex gap-x-6 text-white' */}
-          <li className=" py-2 w-full">
-            <Link href='/'>
-              <p>Home</p>
-            </Link>
-          </li>
-          <li className=" py-2 w-full">
-            <Link href='/portfolio'>
-              <p>Portfolio</p>
-            </Link>
-          </li>
-          <li className=" py-2 w-full">
-            <Link href='/contact'>
-              <p>Contact</p>
-            </Link>
-          </li>
-          {/* <li>
-            <Link href='/blog'>
-              <p>Blog</p>
-            </Link>
-          </li> */}
-          <li className="py-2">
-            {mounted && (
-              <button
-                onClick={toggleTheme}
-                className="p-2 rounded-lg hover:bg-gray-200 dark:hover:bg-gray-700 transition-colors cursor-pointer"
-                aria-label="Toggle theme"
-              >
-                <Icon
-                  icon={theme === "dark" ? "lucide:sun" : "lucide:moon"}
-                  className="h-5 w-5"
-                />
-              </button>
-            )}
-          </li>
-        </ul>
-        {/* </div>
-          </div>
-        </div> */}
+          {/* Mobile Menu */}
+          <Sheet open={sheetOpen} onOpenChange={setSheetOpen}>
+            <SheetTrigger asChild>
+              <Button variant="ghost" size="icon" aria-label="Open menu">
+                <Icon icon="lucide:menu" className="h-6 w-6" />
+              </Button>
+            </SheetTrigger>
+            <SheetContent side="right" className="bg-brand-light dark:bg-brand-dark">
+              <SheetHeader>
+                <SheetTitle className="text-brand-dark dark:text-brand-light">
+                  Navigation
+                </SheetTitle>
+              </SheetHeader>
+              <nav className="flex flex-col gap-4 mt-8">
+                {navLinks.map((link) => (
+                  <Link
+                    key={link.href}
+                    href={link.href}
+                    onClick={() => setSheetOpen(false)}
+                    className="text-lg font-semibold uppercase text-brand-dark dark:text-brand-light hover:text-brand-teal transition-colors py-2"
+                  >
+                    {link.label}
+                  </Link>
+                ))}
+              </nav>
+            </SheetContent>
+          </Sheet>
+        </div>
       </div>
     </nav>
   );
